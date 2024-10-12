@@ -134,7 +134,7 @@ model property__example_prod {
 }
 
 model deal_user__example_prod {
-  id         String             @unique @default(uuid())
+  id         String             @unique @default(uuid()) @db.Uuid
   created_at DateTime           @default(now())
   updated_at DateTime           @updatedAt
   user_id    String             @db.Uuid

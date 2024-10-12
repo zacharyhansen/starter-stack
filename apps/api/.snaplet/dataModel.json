@@ -913,11 +913,11 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.userId",
-          "name": "userId",
-          "columnName": "userId",
-          "type": "uuid",
-          "isRequired": false,
+          "id": "example_prod.deal.label",
+          "name": "label",
+          "columnName": "label",
+          "type": "text",
+          "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -927,11 +927,11 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": true,
+          "id": "example_prod.deal.userId",
+          "name": "userId",
+          "columnName": "userId",
+          "type": "uuid",
+          "isRequired": false,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -1282,11 +1282,11 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.deal.userId",
-          "name": "userId",
-          "columnName": "userId",
-          "type": "uuid",
-          "isRequired": false,
+          "id": "example_uat.deal.label",
+          "name": "label",
+          "columnName": "label",
+          "type": "text",
+          "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -1296,11 +1296,11 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.deal.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": true,
+          "id": "example_uat.deal.userId",
+          "name": "userId",
+          "columnName": "userId",
+          "type": "uuid",
+          "isRequired": false,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -1685,20 +1685,6 @@
       "tableName": "deal_user",
       "fields": [
         {
-          "id": "example_prod.deal_user.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
           "id": "example_prod.deal_user.created_at",
           "name": "created_at",
           "columnName": "created_at",
@@ -1755,6 +1741,20 @@
           "maxLength": null
         },
         {
+          "id": "example_prod.deal_user.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
           "name": "user",
           "type": "user",
           "isRequired": true,
@@ -1801,20 +1801,6 @@
       "schemaName": "example_uat",
       "tableName": "deal_user",
       "fields": [
-        {
-          "id": "example_uat.deal_user.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
         {
           "id": "example_uat.deal_user.created_at",
           "name": "created_at",
@@ -1869,6 +1855,20 @@
           "sequence": false,
           "hasDefaultValue": false,
           "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "example_uat.deal_user.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
           "maxLength": null
         },
         {

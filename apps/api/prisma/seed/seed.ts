@@ -262,6 +262,10 @@ async function main() {
                 max: 100,
                 min: 0,
               }),
+              example_prod_deal_user: copycat
+                .someOf(seed, [0, underwriters.length], underwriters)
+                // eslint-disable-next-line sonarjs/no-nested-functions
+                .map(uw => ({ user_id: uw.id })),
               creator_id: copycat.oneOf(seed, organization_user).user_id,
               interest_rate: Number.parseFloat(
                 faker.number
@@ -305,87 +309,90 @@ async function main() {
         break;
       }
       case 'example_uat': {
-        // await seed.example_uat_opportunity(x =>
-        //   x(500, {
-        //     assignee_id: context =>
-        //       copycat.oneOf(context.seed, organization_user).user_id,
-        //     creator_id: context =>
-        //       copycat.oneOf(context.seed, organization_user).user_id,
-        //     borrower_user_id: context =>
-        //       copycat.int(context.seed, {
-        //         min: 0,
-        //         max: 10,
-        //       })
-        //         ? copycat.oneOf(context.seed, org_borrowers).user_id
-        //         : null,
-        //     agent_id: context =>
-        //       copycat.int(context.seed, {
-        //         min: 0,
-        //         max: 10,
-        //       })
-        //         ? copycat.oneOf(context.seed, org_agents).user_id
-        //         : null,
-        //     borrower_business_id: context =>
-        //       copycat.int(context.seed, {
-        //         min: 0,
-        //         max: 1,
-        //       })
-        //         ? copycat.oneOf(context.seed, org_businesses).id
-        //         : null,
-        //     label: context =>
-        //       copycat.int(context.seed, {
-        //         min: 0,
-        //         max: 1,
-        //       })
-        //         ? copycat.word(context.seed)
-        //         : null,
-        //     example_uat_deal: {
-        //       appetite: faker.number.int({
-        //         max: 100,
-        //         min: 0,
-        //       }),
-        //       creator_id: context =>
-        //         copycat.oneOf(context.seed, organization_user).user_id,
-        //       interest_rate: Number.parseFloat(
-        //         faker.number
-        //           .float({
-        //             fractionDigits: 6,
-        //             max: 0.07,
-        //             min: 0.035,
-        //           })
-        //           .toFixed(4)
-        //       ),
-        //       loan_amount: Number.parseFloat(
-        //         faker.number
-        //           .float({
-        //             max: 10_000_000,
-        //             min: 100_000,
-        //           })
-        //           .toFixed(2)
-        //       ),
-        //       loan_processing_fee: Number.parseFloat(
-        //         faker.number
-        //           .float({
-        //             fractionDigits: 2,
-        //             max: 3000,
-        //             min: 15,
-        //           })
-        //           .toFixed(2)
-        //       ),
-        //       source: faker.lorem.word(),
-        //       ssbs_score: faker.number.int({
-        //         max: 1000,
-        //         min: 500,
-        //       }),
-        //       status_id: context => copycat.oneOf(context.seed, deal_statuses),
-        //       winnability: context =>
-        //         copycat.int(context.seed, {
-        //           max: 100,
-        //           min: 0,
-        //         }),
-        //     },
-        //   })
-        // );
+        const { example_uat_deal_status } = await seed.example_uat_deal_status(
+          deal_statuses.map((status, index) => ({
+            label: status,
+            order: index,
+          }))
+        );
+        await seed.example_uat_opportunity(x =>
+          x(500, ({ seed }) => ({
+            assignee_id: copycat.oneOf(seed, organization_user).user_id,
+            creator_id: copycat.oneOf(seed, organization_user).user_id,
+            borrower_user_id: copycat.int(seed, {
+              min: 0,
+              max: 10,
+            })
+              ? copycat.oneOf(seed, org_borrowers).user_id
+              : null,
+            agent_id: copycat.int(seed, {
+              min: 0,
+              max: 10,
+            })
+              ? copycat.oneOf(seed, org_agents).user_id
+              : null,
+            borrower_business_id: copycat.int(seed, {
+              min: 0,
+              max: 1,
+            })
+              ? copycat.oneOf(seed, org_businesses).id
+              : null,
+            label: context =>
+              copycat.int(context.seed, {
+                min: 0,
+                max: 1,
+              })
+                ? copycat.word(context.seed)
+                : null,
+            example_uat_deal: ({ seed }) => ({
+              appetite: faker.number.int({
+                max: 100,
+                min: 0,
+              }),
+              example_uat_deal_user: copycat
+                .someOf(seed, [0, underwriters.length], underwriters)
+                // eslint-disable-next-line sonarjs/no-nested-functions
+                .map(uw => ({ user_id: uw.id })),
+              creator_id: copycat.oneOf(seed, organization_user).user_id,
+              interest_rate: Number.parseFloat(
+                faker.number
+                  .float({
+                    fractionDigits: 6,
+                    max: 0.07,
+                    min: 0.035,
+                  })
+                  .toFixed(4)
+              ),
+              loan_amount: Number.parseFloat(
+                faker.number
+                  .float({
+                    max: 10_000_000,
+                    min: 100_000,
+                  })
+                  .toFixed(2)
+              ),
+              loan_processing_fee: Number.parseFloat(
+                faker.number
+                  .float({
+                    fractionDigits: 2,
+                    max: 3000,
+                    min: 15,
+                  })
+                  .toFixed(2)
+              ),
+              source: faker.lorem.word(),
+              ssbs_score: faker.number.int({
+                max: 1000,
+                min: 500,
+              }),
+              status_id: copycat.oneOf(seed, example_uat_deal_status).id,
+              winnability: copycat.int(seed, {
+                max: 100,
+                min: 0,
+              }),
+            }),
+          }))
+        );
         break;
       }
     }
