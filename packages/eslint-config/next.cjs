@@ -1,6 +1,6 @@
-const { resolve } = require('node:path')
+const { resolve } = require('node:path');
 
-const project = resolve(process.cwd(), 'tsconfig.json')
+const project = resolve(process.cwd(), 'tsconfig.json');
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
@@ -160,17 +160,9 @@ module.exports = {
     'unicorn/prefer-node-protocol': 'off',
     'unicorn/no-useless-undefined': 'off',
     'unicorn/no-unreadable-array-destructuring': 'off',
-    'unicorn/filename-case': [
-      'error',
-      {
-        cases: {
-          kebabCase: true,
-        },
-        ignore: ['/^$/', 'README.md$'],
-      },
-    ],
     'unicorn/no-null': 'off',
     'unicorn/prefer-spread': 'off',
+    'unicorn/filename-case': 'off',
     'unicorn/prevent-abbreviations': [
       'error',
       {
@@ -197,17 +189,6 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
-    'react-refresh/only-export-components': [
-      'warn',
-      {
-        allowConstantExport: true,
-        allowExportNames: [
-          'metadata',
-          'viewport',
-          'generateMetadata',
-          'generateViewport',
-        ],
-      },
-    ],
+    'react-refresh/only-export-components': 'off',
   },
-}
+};

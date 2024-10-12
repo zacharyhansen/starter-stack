@@ -29,5 +29,14 @@
     }
   ],
   "material-icon-theme.activeIconPack": "nest",
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+  }
 }
