@@ -7,6 +7,6 @@
     },
     "outDir": "./dist"
   },
-  "include": ["src", "@generated", "index.ts"],
+  "include": ["src", "@generated", "index.ts", "seed.client.ts", "prisma/seed"],
   "exclude": ["node_modules", "dist", "**/node_modules/**"]
 }

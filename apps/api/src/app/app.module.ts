@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common'
-import { ConfigModule } from '@nestjs/config'
-import { TRPCModule } from 'nestjs-trpc'
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { TRPCModule } from 'nestjs-trpc';
 
-import { AppRouter } from './app.router'
+import { AppRouter } from './app.router';
 
-import { EnvModule, envSchema } from '~/config/env'
+import { EnvModule, envSchema } from '~/config/env';
+import { ViewRouter } from '~/view/view.router';
 
 @Module({
   imports: [
@@ -17,6 +18,6 @@ import { EnvModule, envSchema } from '~/config/env'
     }),
     EnvModule,
   ],
-  providers: [AppRouter],
+  providers: [AppRouter, ViewRouter],
 })
 export class AppModule {}

@@ -10,7 +10,8 @@ Object.defineProperty(exports, "envSchema", {
 });
 const _zod = require("zod");
 const envSchema = _zod.z.object({
-    PORT: _zod.z.coerce.number().optional().default(4000)
+    PORT: _zod.z.coerce.number().optional().default(5001),
+    CLIENT_ORIGIN: _zod.z.string()
 });
 
 //# sourceMappingURL=env.schema.js.map

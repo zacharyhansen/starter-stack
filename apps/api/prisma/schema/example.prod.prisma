@@ -1,0 +1,148 @@
+model deal_status__example_prod {
+  id          String               @id @default(uuid()) @db.Uuid
+  external_id String?              @unique()
+  created_at  DateTime             @default(now())
+  updated_at  DateTime             @updatedAt
+  order       Int
+  label       String               @unique
+  deal        deal__example_prod[]
+
+  @@map("deal_status")
+  @@schema("example_prod")
+}
+
+model opportunity__example_prod {
+  id                   String               @id @default(uuid()) @db.Uuid
+  external_id          String?              @unique()
+  created_at           DateTime             @default(now())
+  updated_at           DateTime             @updatedAt
+  label                String?
+  active_deal_id       String?              @unique @db.Uuid
+  assignee_id          String?              @db.Uuid
+  creator_id           String?              @db.Uuid
+  agent_id             String?              @db.Uuid
+  borrower_user_id     String?              @db.Uuid
+  borrower_business_id String?              @db.Uuid
+  active_deal          deal__example_prod?  @relation(name: "active_deal", fields: [active_deal_id], references: [id])
+  agent                user?                @relation(name: "agent_opportunity", fields: [agent_id], references: [id])
+  assignee             user?                @relation(name: "assignee_opportunity", fields: [assignee_id], references: [id])
+  created_by           user?                @relation(name: "creator_opportunity", fields: [creator_id], references: [id])
+  borrower_user        user?                @relation(name: "borrower_opportunity", fields: [borrower_user_id], references: [id])
+  borrower_business    business?            @relation(fields: [borrower_business_id], references: [id])
+  deal                 deal__example_prod[] @relation(name: "deals")
+
+  @@map("opportunity")
+  @@schema("example_prod")
+}
+
+model deal__example_prod {
+  id                      String                     @id @default(uuid()) @db.Uuid
+  external_id             String?                    @unique()
+  created_at              DateTime                   @default(now())
+  updated_at              DateTime                   @updatedAt
+  label                   String
+  opportunity_id          String                     @db.Uuid
+  source                  String?
+  assignee_id             String?                    @db.Uuid
+  creator_id              String?                    @db.Uuid
+  winnability             Int?
+  appetite                Int?
+  ssbs_score              Int?
+  loan_amount             Decimal?                   @db.Decimal(14, 3)
+  interest_rate           Decimal?                   @db.Decimal(7, 6)
+  loan_processing_fee     Decimal?                   @db.Decimal(10, 3)
+  status_id               String                     @db.Uuid
+  assignee                user?                      @relation(name: "assignee_deal", fields: [assignee_id], references: [id])
+  created_by              user?                      @relation(name: "creator_deal", fields: [creator_id], references: [id])
+  status                  deal_status__example_prod  @relation(fields: [status_id], references: [id])
+  opportunity             opportunity__example_prod  @relation(name: "deals", fields: [opportunity_id], references: [id])
+  opportunity_active      opportunity__example_prod? @relation(name: "active_deal")
+  task                    task__example_prod[]
+  property                property__example_prod[]
+  deal_user__example_prod deal_user__example_prod[]
+  userId                  String?                    @db.Uuid
+
+  @@map("deal")
+  @@schema("example_prod")
+}
+
+model task_status__example_prod {
+  id          Int                  @id @default(autoincrement())
+  external_id String?              @unique()
+  created_at  DateTime             @default(now())
+  updated_at  DateTime             @updatedAt
+  label       String               @unique
+  task        task__example_prod[]
+
+  @@map("task_status")
+  @@schema("example_prod")
+}
+
+model task_priority__example_prod {
+  id          Int                  @id @default(autoincrement())
+  external_id String?              @unique()
+  created_at  DateTime             @default(now())
+  updated_at  DateTime             @updatedAt
+  label       String               @unique
+  tasks       task__example_prod[]
+
+  @@map("task_priority")
+  @@schema("example_prod")
+}
+
+model task__example_prod {
+  id          String                      @id @default(uuid()) @db.Uuid
+  external_id String?                     @unique()
+  created_at  DateTime                    @default(now())
+  updated_at  DateTime                    @updatedAt
+  title       String                      @unique
+  description String?                     @unique
+  status_id   Int
+  assignee_id String?                     @db.Uuid
+  creator_id  String?                     @db.Uuid
+  deal_id     String                      @db.Uuid
+  assignee    user?                       @relation(name: "assignee_task", fields: [assignee_id], references: [id])
+  creator     user?                       @relation(name: "creator_task", fields: [creator_id], references: [id])
+  status      task_status__example_prod   @relation(fields: [status_id], references: [id])
+  priority_id Int
+  priority    task_priority__example_prod @relation(fields: [priority_id], references: [id])
+  deal        deal__example_prod?         @relation(fields: [deal_id], references: [id])
+
+  @@map("task")
+  @@schema("example_prod")
+}
+
+model property__example_prod {
+  id             String             @id @default(uuid()) @db.Uuid
+  external_id    String?            @unique()
+  created_at     DateTime           @default(now())
+  updated_at     DateTime           @updatedAt
+  description    String?
+  tags           String[]
+  year_built     Int?
+  area_sq_km     Float?
+  type           property_type?
+  amenities      String[]
+  submitted_at   DateTime           @default(now())
+  last_census_at DateTime?
+  building_type  building_type?
+  deal_id        String             @db.Uuid
+  deal           deal__example_prod @relation(fields: [deal_id], references: [id])
+
+  @@map("property")
+  @@schema("example_prod")
+}
+
+model deal_user__example_prod {
+  id         String             @unique @default(uuid())
+  created_at DateTime           @default(now())
+  updated_at DateTime           @updatedAt
+  user_id    String             @db.Uuid
+  deal_id    String             @db.Uuid
+  user       user               @relation(fields: [user_id], references: [id])
+  deal       deal__example_prod @relation(fields: [deal_id], references: [id])
+
+  @@id([deal_id, user_id])
+  @@map("deal_user")
+  @@schema("example_prod")
+}

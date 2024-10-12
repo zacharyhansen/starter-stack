@@ -1,5 +1,5 @@
-import { Input, Query, Router } from 'nestjs-trpc'
-import { z } from 'zod'
+import { Input, Query, Router } from 'nestjs-trpc';
+import { z } from 'zod';
 
 @Router({ alias: 'app' })
 export class AppRouter {
@@ -10,6 +10,6 @@ export class AppRouter {
   greeting(@Input('name') name: string) {
     return {
       message: `Hello ${name}!`,
-    }
+    };
   }
 }

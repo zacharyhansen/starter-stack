@@ -1,0 +1,140 @@
+enum tenant {
+  example_uat
+  example_prod
+
+  @@schema("auth")
+}
+
+model business {
+  id                        String                      @id @default(uuid()) @db.Uuid
+  external_id               String?                     @unique()
+  created_at                DateTime                    @default(now())
+  updated_at                DateTime                    @updatedAt
+  address                   String?
+  address_line_2            String?
+  city                      String?                     @db.VarChar(255)
+  zip_code                  String?                     @db.VarChar(255)
+  state                     state_usa?
+  county                    String?
+  email                     String?                     @db.VarChar(255)
+  name_display              String?
+  name_legal                String?
+  duns                      String?                     @unique() @db.VarChar(9)
+  dba                       String?                     @unique() @db.VarChar(255)
+  tin                       String?                     @unique() @db.VarChar(9)
+  phone                     String?
+  business_type             String?
+  industry                  String?
+  date_business_began       DateTime?                   @db.Date
+  revenue_average           Float?
+  debt                      Float?
+  business_user             business_user[]
+  organization_business     organization_business[]
+  opportunity__example_uat  opportunity__example_uat[]
+  opportunity__example_prod opportunity__example_prod[]
+
+  @@schema("auth")
+}
+
+model business_user {
+  id                      String   @id @default(uuid()) @db.Uuid
+  created_at              DateTime @default(now())
+  updated_at              DateTime @updatedAt
+  business_id             String   @db.Uuid
+  user_id                 String   @db.Uuid
+  job_title               String?
+  owernship               Float?
+  income_average_monthly  Float?
+  expense_average_monthly Float?
+  business                business @relation(fields: [business_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user                    user     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([business_id, user_id])
+  @@schema("auth")
+}
+
+model organization {
+  id                    String                  @id @db.VarChar(255)
+  tenant                tenant                  @unique
+  external_id           String?                 @unique()
+  created_at            DateTime                @default(now())
+  updated_at            DateTime                @updatedAt
+  name                  String
+  clerk_id              String                  @unique() @db.VarChar(255)
+  environment_type      environment_type        @default(uat)
+  organization_business organization_business[]
+  organization_user     organization_user[]
+
+  @@schema("auth")
+}
+
+model organization_business {
+  id              String       @id @default(uuid()) @db.Uuid
+  created_at      DateTime     @default(now())
+  updated_at      DateTime     @updatedAt
+  organization_id String       @db.VarChar(255)
+  business_id     String       @db.Uuid
+  business        business     @relation(fields: [business_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  organization    organization @relation(fields: [organization_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([organization_id, business_id])
+  @@schema("auth")
+}
+
+model organization_user {
+  id              String       @id @default(uuid()) @db.Uuid
+  created_at      DateTime     @default(now())
+  updated_at      DateTime     @updatedAt
+  organization_id String       @db.VarChar(255)
+  user_id         String       @db.Uuid
+  organization    organization @relation(fields: [organization_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user            user         @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  role            role
+
+  @@unique([organization_id, user_id, role])
+  @@schema("auth")
+}
+
+model user {
+  id                                 String                      @id @default(uuid()) @db.Uuid
+  external_id                        String?                     @unique()
+  created_at                         DateTime                    @default(now())
+  updated_at                         DateTime                    @updatedAt
+  address                            String?
+  address_line_2                     String?
+  city                               String?                     @db.VarChar(255)
+  zip_code                           String?                     @db.VarChar(255)
+  state                              state_usa?
+  county                             String?
+  clerk_id                           String                      @unique() @db.VarChar(255)
+  email                              String                      @unique() @db.VarChar(255)
+  name                               String?
+  phone                              String?                     @db.VarChar(255)
+  ssn                                String?                     @db.VarChar(9)
+  date_of_birth                      DateTime?                   @db.Date
+  credit_score                       Int?
+  business_user                      business_user[]
+  organization_user                  organization_user[]
+  // example uat
+  opportunity_assignee__example_uat  opportunity__example_uat[]  @relation(name: "assignee_opportunity")
+  opportunity_creater__example_uat   opportunity__example_uat[]  @relation(name: "creator_opportunity")
+  opportunity_borrower__example_uat  opportunity__example_uat[]  @relation(name: "borrower_opportunity")
+  deal_creator__example_uat          deal__example_uat[]         @relation(name: "assignee_deal")
+  deal_assignee__example_uat         deal__example_uat[]         @relation(name: "creator_deal")
+  task_creator__example_uat          task__example_uat[]         @relation(name: "assignee_task")
+  task_assignee__example_uat         task__example_uat[]         @relation(name: "creator_task")
+  deal_user__example_uat             deal_user__example_uat[]
+  // example prod
+  opportunity_assignee__example_prod opportunity__example_prod[] @relation(name: "assignee_opportunity")
+  opportunity_creater__example_prod  opportunity__example_prod[] @relation(name: "creator_opportunity")
+  opportunity_borrower__example_prod opportunity__example_prod[] @relation(name: "borrower_opportunity")
+  deal_creator__example_prod         deal__example_prod[]        @relation(name: "assignee_deal")
+  deal_assignee__example_prod        deal__example_prod[]        @relation(name: "creator_deal")
+  task_creator__example_prod         task__example_prod[]        @relation(name: "assignee_task")
+  task_assignee__example_prod        task__example_prod[]        @relation(name: "creator_task")
+  deal_user__example_prod            deal_user__example_prod[]
+  opportunity__example_uat           opportunity__example_uat[]  @relation(name: "agent_opportunity")
+  opportunity__example_prod          opportunity__example_prod[] @relation(name: "agent_opportunity")
+
+  @@schema("auth")
+}

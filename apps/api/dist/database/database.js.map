@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/database/database.ts"],"sourcesContent":["import { Kysely } from 'kysely';\nimport type { Database as TDatabase } from '@repo/postgres-types';\n\nexport class Database extends Kysely<TDatabase> {}\n"],"names":["Database","Kysely"],"mappings":";;;;+BAGaA;;;eAAAA;;;wBAHU;AAGhB,IAAA,AAAMA,WAAN,MAAMA,iBAAiBC,cAAM;AAAa"}
