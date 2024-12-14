@@ -14,6 +14,16 @@ const _nestjstrpc = require("nestjs-trpc");
 const _approuter = require("./app.router");
 const _env = require("../config/env");
 const _viewrouter = require("../view/view.router");
+const _viewmodule = require("../view/view.module");
+const _databasemodule = require("../database/database.module");
+const _getconfigservice = /*#__PURE__*/ _interop_require_default(require("../config/gcp-secrets/get-config-service"));
+const _querymodule = require("../query/query.module");
+const _queryrouter = require("../query/query.router");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29,14 +39,21 @@ AppModule = _ts_decorate([
                 autoSchemaFile: './@generated'
             }),
             _config.ConfigModule.forRoot({
+                load: [
+                    _getconfigservice.default
+                ],
                 validate: (env)=>_env.envSchema.parse(env),
                 isGlobal: true
             }),
-            _env.EnvModule
+            _databasemodule.DatabaseModule,
+            _env.EnvModule,
+            _querymodule.QueryModule,
+            _viewmodule.ViewModule
         ],
         providers: [
             _approuter.AppRouter,
-            _viewrouter.ViewRouter
+            _viewrouter.ViewRouter,
+            _queryrouter.QueryRouter
         ]
     })
 ], AppModule);

@@ -10,7 +10,8 @@ import {
   Loader,
   ScanEye,
 } from 'lucide-react';
-import type { TaskPriority } from '@repo/postgres-types';
+
+import type { TablesFoundation } from '~/lib/database/helpers';
 
 const statusIdToIcon: Record<string, LucideIcon> = {
   '0': Loader,
@@ -24,7 +25,7 @@ const statusIdToIcon: Record<string, LucideIcon> = {
 export default function TaskStatusCell({
   format = 'full',
   value,
-}: CustomCellRendererProps<unknown, TaskPriority> & {
+}: CustomCellRendererProps<unknown, TablesFoundation<'task_status'>> & {
   format?: 'icon' | 'full';
 }) {
   const { id, label } = value ?? {};

@@ -1,10 +1,11 @@
 import type { CustomCellRendererProps } from 'ag-grid-react';
-import type { DealStatus } from '@repo/postgres-types';
 import { Badge } from '@repo/ui/components/badge';
+
+import type { TablesFoundation } from '~/lib/database/helpers';
 
 export default function DealStatusCell({
   value,
-}: CustomCellRendererProps<unknown, DealStatus> & {
+}: CustomCellRendererProps<unknown, TablesFoundation<'deal_status'>> & {
   statusCount?: number;
 }) {
   const { id, label } = value ?? {};

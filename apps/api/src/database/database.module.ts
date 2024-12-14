@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common';
-import { CamelCasePlugin, PostgresDialect } from 'kysely';
+import { PostgresDialect } from 'kysely';
 import { ConfigService } from '@nestjs/config';
 import { Pool } from 'pg';
 
@@ -9,13 +9,18 @@ import { fetchGCPSecrets } from '~/config/gcp-secrets/fetchSecrets';
 
 @Global()
 @Module({
-  exports: [Database],
+  exports: [Database, 'PoolReadOnly'],
   providers: [
     {
       inject: [ConfigService],
       provide: Database,
       useFactory: async (configService: ConfigService) => {
-        if (configService.get('SECRET_SOURCE') === 'LOCAL') {
+        console.log({ SECRET_SOURCE: configService.get('SECRET_SOURCE') });
+
+        if (
+          configService.get('SECRET_SOURCE') === 'LOCAL' ||
+          !configService.get('SECRET_SOURCE')
+        ) {
           return new Database({
             dialect: new PostgresDialect({
               pool: new Pool({
@@ -26,7 +31,6 @@ import { fetchGCPSecrets } from '~/config/gcp-secrets/fetchSecrets';
                 user: process.env.DATABASE_USER,
               }),
             }),
-            plugins: [new CamelCasePlugin()],
           });
         }
 
@@ -42,10 +46,39 @@ import { fetchGCPSecrets } from '~/config/gcp-secrets/fetchSecrets';
               user: secrets.DATABASE_USER,
             }),
           }),
-          plugins: [new CamelCasePlugin()],
+        });
+      },
+    },
+    {
+      inject: [ConfigService],
+      provide: 'PoolReadOnly',
+      useFactory: async (configService: ConfigService) => {
+        console.log({ SECRET_SOURCE: configService.get('SECRET_SOURCE') });
+
+        if (
+          configService.get('SECRET_SOURCE') === 'LOCAL' ||
+          !configService.get('SECRET_SOURCE')
+        ) {
+          return new Pool({
+            database: process.env.DATABASE_NAME,
+            host: process.env.DATABASE_HOST,
+            password: process.env.DATABASE_PASSWORD,
+            port: Number.parseInt(process.env.DATABASE_PORT!.toString()),
+            user: process.env.DATABASE_USER,
+          });
+        }
+
+        const secrets = await fetchGCPSecrets();
+
+        return new Pool({
+          database: secrets.DATABASE_NAME,
+          host: secrets.DATABASE_HOST,
+          password: secrets.DATABASE_PASSWORD,
+          port: Number.parseInt(secrets.DATABASE_PORT!.toString()),
+          user: secrets.DATABASE_USER,
         });
       },
     },
   ],
 })
-export class DbModule {}
+export class DatabaseModule {}

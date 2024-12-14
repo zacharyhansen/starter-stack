@@ -1,10 +1,13 @@
 import { Module } from '@nestjs/common';
 
-import { ViewRouter } from './view.router';
+import { ViewService } from './view.service';
+
+import { DatabaseModule } from '~/database/database.module';
+import { QueryModule } from '~/query/query.module';
 
 @Module({
-  exports: [ViewRouter],
-  imports: [],
-  providers: [ViewRouter],
+  exports: [ViewService],
+  imports: [DatabaseModule, QueryModule],
+  providers: [ViewService],
 })
 export class ViewModule {}

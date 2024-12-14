@@ -34,7 +34,7 @@ export default function AgGridWrapper({
         'rounded-lg border': title,
         'flex min-h-96 flex-col': !height,
       })} // applying the Data Grid theme
-      style={{ height: height || 'calc(100vh - 150px)' }} //default is little less than the screen to account for the header bar
+      style={{ height: height ?? 'calc(100vh - 150px)' }} // default is little less than the screen to account for the header bar
     >
       {title ? <h3 className="p-2 text-xl font-semibold">{title}</h3> : null}
       {children}

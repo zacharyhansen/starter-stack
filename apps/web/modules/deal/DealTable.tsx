@@ -3,30 +3,25 @@
 import { useQuery } from '@supabase-cache-helpers/postgrest-react-query';
 import { AgGridReact } from 'ag-grid-react';
 import { useRouter } from 'next/navigation';
-import type { DealStatus, User } from '@repo/postgres-types';
 import { Alert } from '@repo/ui/components/alert';
 
 import { DEALS } from '~/constants/routes';
-import postgrest from '~/lib/postgrest';
+import postgrest from '~/lib/database/postgrest';
 import {
   AgGridWrapper,
   dataTypeDefinitions,
   DealStatusCell,
   UserCell,
 } from '~/modules/ClientAgGrid';
-import { trpc } from '~/lib/trpc';
+import type { TablesFoundation } from '~/lib/database/helpers';
 
 export default function OpportunityTable() {
   const router = useRouter();
-  const { data: test, error: userError } = trpc.view.userById.useQuery({
-    userId: 'id_bilbo',
-  });
 
-  console.log({ test, userError });
   const { data, error, isLoading } = useQuery(
-    postgrest.schema('tenant_base_org').from('opportunity').select(`
+    postgrest.schema('foundation').from('opportunity').select(`
       id,
-      deal!opportunity_active_deal_id_foreign(
+      deal!opportunity_active_deal_id_fkey(
         created_at,
         updated_at,
         source,
@@ -41,21 +36,31 @@ export default function OpportunityTable() {
           label,
           order
         ),
-        assignee:view_organization_user!deal_assignee_id_foreign(
+        assignee:user!deal_assignee_id_fkey(
           id,
           name,
           email,
           phone
         ),
         users:deal_user(
-          user:view_organization_user(id)
+          user:user(id)
         )
-      )
-
-      view_organization_business(
+      ),
+      creator:user!opportunity_creator_id_fkey(
         id,
-        name_display,
-        name_legal,
+        name,
+        email,
+        phone
+      ),
+      borrower:user!opportunity_borrower_user_id_fkey(
+        id,
+        name,
+        email,
+        phone
+      ),
+      agent:user!opportunity_agent_id_fkey(
+        id,
+        name,
         email,
         phone
       )
@@ -81,64 +86,38 @@ export default function OpportunityTable() {
         columnDefs={[
           {
             cellRenderer: DealStatusCell,
-            comparator: (a: DealStatus, b: DealStatus) =>
+            comparator: (a, b) =>
               ((a.order as unknown as number) || 0) -
               ((b.order as unknown as number) || 0),
-            field: 'deal_status',
+            field: 'deal.deal_status',
             filter: true,
             filterValueGetter: params => {
-              // see https://github.com/supabase/postgrest-js/issues/546
-              // https://github.com/supabase/postgrest-js/pull/558
-              return (params.data as unknown as DealStatus).label;
+              return params.data?.deal?.deal_status?.label;
             },
             headerName: 'Status',
             width: 200,
           },
           {
             cellRenderer: UserCell,
-            comparator: (a: User, b: User) =>
+            comparator: (
+              a: TablesFoundation<'q_user'>,
+              b: TablesFoundation<'q_user'>
+            ) =>
               ((a.name as unknown as string) || '') >
               ((b.name as unknown as string) || '')
                 ? 1
                 : -1,
-            field: 'assignee',
+            field: 'deal.assignee',
             headerName: 'Assignee',
-          },
-          {
-            field: 'ssbs_score',
-            headerName: 'SSBS',
-            width: 100,
-          },
-          {
-            cellDataType: 'usd',
-            field: 'loan_amount',
-            headerName: 'Loan',
-            width: 100,
-          },
-          {
-            cellDataType: 'percentage',
-            field: 'interest_rate',
-            headerName: 'Rate',
-            width: 100,
-          },
-          {
-            cellDataType: 'percenta',
-            field: 'winnability',
-            width: 120,
-          },
-          {
-            field: 'appetite',
-            width: 120,
-          },
-          {
-            cellDataType: 'usd',
-            field: 'loan_processing_fee',
-            headerName: 'Processing Fee',
-            width: 100,
+            flex: 1,
+            minWidth: 200,
           },
           {
             cellRenderer: UserCell,
-            comparator: (a: User, b: User) =>
+            comparator: (
+              a: TablesFoundation<'q_user'>,
+              b: TablesFoundation<'q_user'>
+            ) =>
               ((a.name as unknown as string) || '') >
               ((b.name as unknown as string) || '')
                 ? 1
@@ -147,18 +126,62 @@ export default function OpportunityTable() {
             headerName: 'Borrower',
           },
           {
-            field: 'source',
+            field: 'deal.ssbs_score',
+            headerName: 'SSBS',
+            width: 100,
+          },
+          {
+            cellDataType: 'usd',
+            field: 'deal.loan_amount',
+            headerName: 'Loan',
+            width: 100,
+          },
+          {
+            cellDataType: 'percentage',
+            field: 'deal.interest_rate',
+            headerName: 'Rate',
+            width: 100,
+          },
+          {
+            field: 'deal.winnability',
+            width: 120,
+          },
+          {
+            field: 'deal.appetite',
+            width: 120,
+          },
+          {
+            cellDataType: 'usd',
+            field: 'deal.loan_processing_fee',
+            headerName: 'Processing Fee',
+            width: 100,
+          },
+          {
+            cellRenderer: UserCell,
+            comparator: (
+              a: TablesFoundation<'q_user'>,
+              b: TablesFoundation<'q_user'>
+            ) =>
+              ((a.name as unknown as string) || '') >
+              ((b.name as unknown as string) || '')
+                ? 1
+                : -1,
+            field: 'agent',
+            headerName: 'Agent',
+          },
+          {
+            field: 'deal.source',
             width: 100,
           },
           {
             cellDataType: 'timeStamp',
-            field: 'updated_at',
+            field: 'deal.updated_at',
             headerName: 'Updated',
             width: 100,
           },
           {
             cellDataType: 'timeStamp',
-            field: 'created_at',
+            field: 'deal.created_at',
             headerName: 'Created',
             width: 100,
           },

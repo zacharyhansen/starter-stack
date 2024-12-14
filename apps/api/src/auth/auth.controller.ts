@@ -1,6 +1,5 @@
 import { Controller, Get, Query, Req, Res } from '@nestjs/common';
 import { type Request, type Response } from 'express';
-import { type User } from '@repo/postgres-types';
 
 import { Database } from '../database/database';
 
@@ -13,10 +12,10 @@ export class AuthController {
   @Get('test-public')
   @Public()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  testPublic(@Query() query: any): Promise<User[]> {
+  testPublic(@Query() query: any): Promise<any[]> {
     return this.database
       .withSchema(query.schema)
-      .selectFrom('user')
+      .selectFrom('role')
       .selectAll()
       .execute();
   }

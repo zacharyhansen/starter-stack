@@ -5,18 +5,18 @@ services:
     image: ankane/pgvector
     restart: always
     environment:
-      - POSTGRES_DB=odigos
+      - POSTGRES_DB=core
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     volumes:
       - pgodigos_data:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '5433:5432'
   postgrest:
     image: postgrest/postgrest
     restart: always
     environment:
-      PGRST_DB_URI: postgres://postgres:password@postgres:5432/odigos
+      PGRST_DB_URI: postgres://postgres:password@postgres:5432/core
       # TODO: must change this before going live
       # PGRST_DB_ANON_ROLE: anonymous
       PGRST_DB_ANON_ROLE: super_admin

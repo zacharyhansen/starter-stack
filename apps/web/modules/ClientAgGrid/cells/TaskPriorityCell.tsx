@@ -8,7 +8,8 @@ import {
   SignalLow,
   SignalMedium,
 } from 'lucide-react';
-import type { TaskPriority } from '@repo/postgres-types';
+
+import type { TablesFoundation } from '~/lib/database/helpers';
 
 const taskIdToIcon: Record<string, LucideIcon> = {
   '0': CircleAlert,
@@ -21,7 +22,7 @@ const taskIdToIcon: Record<string, LucideIcon> = {
 export default function TaskPriorityCell({
   format = 'full',
   value,
-}: CustomCellRendererProps<unknown, TaskPriority> & {
+}: CustomCellRendererProps<unknown, TablesFoundation<'task_priority'>> & {
   format?: 'icon' | 'full';
 }) {
   const { id, label } = value ?? {};

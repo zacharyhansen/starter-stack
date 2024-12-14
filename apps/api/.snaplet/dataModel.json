@@ -127,12 +127,12 @@
       ]
     },
     "business": {
-      "id": "auth.business",
-      "schemaName": "auth",
+      "id": "foundation.business",
+      "schemaName": "foundation",
       "tableName": "business",
       "fields": [
         {
-          "id": "auth.business.id",
+          "id": "foundation.business.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -146,7 +146,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.external_id",
+          "id": "foundation.business.external_id",
           "name": "external_id",
           "columnName": "external_id",
           "type": "text",
@@ -160,7 +160,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.created_at",
+          "id": "foundation.business.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -174,7 +174,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.updated_at",
+          "id": "foundation.business.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -188,7 +188,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.address",
+          "id": "foundation.business.address",
           "name": "address",
           "columnName": "address",
           "type": "text",
@@ -202,7 +202,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.address_line_2",
+          "id": "foundation.business.address_line_2",
           "name": "address_line_2",
           "columnName": "address_line_2",
           "type": "text",
@@ -216,7 +216,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.city",
+          "id": "foundation.business.city",
           "name": "city",
           "columnName": "city",
           "type": "varchar",
@@ -230,7 +230,7 @@
           "maxLength": 255
         },
         {
-          "id": "auth.business.zip_code",
+          "id": "foundation.business.zip_code",
           "name": "zip_code",
           "columnName": "zip_code",
           "type": "varchar",
@@ -244,7 +244,7 @@
           "maxLength": 255
         },
         {
-          "id": "auth.business.state",
+          "id": "foundation.business.state",
           "name": "state",
           "columnName": "state",
           "type": "state_usa",
@@ -258,7 +258,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.county",
+          "id": "foundation.business.county",
           "name": "county",
           "columnName": "county",
           "type": "text",
@@ -272,7 +272,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.email",
+          "id": "foundation.business.email",
           "name": "email",
           "columnName": "email",
           "type": "varchar",
@@ -286,7 +286,7 @@
           "maxLength": 255
         },
         {
-          "id": "auth.business.name_display",
+          "id": "foundation.business.name_display",
           "name": "name_display",
           "columnName": "name_display",
           "type": "text",
@@ -300,7 +300,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.name_legal",
+          "id": "foundation.business.name_legal",
           "name": "name_legal",
           "columnName": "name_legal",
           "type": "text",
@@ -314,7 +314,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.duns",
+          "id": "foundation.business.duns",
           "name": "duns",
           "columnName": "duns",
           "type": "varchar",
@@ -328,7 +328,7 @@
           "maxLength": 9
         },
         {
-          "id": "auth.business.dba",
+          "id": "foundation.business.dba",
           "name": "dba",
           "columnName": "dba",
           "type": "varchar",
@@ -342,7 +342,7 @@
           "maxLength": 255
         },
         {
-          "id": "auth.business.tin",
+          "id": "foundation.business.tin",
           "name": "tin",
           "columnName": "tin",
           "type": "varchar",
@@ -356,7 +356,7 @@
           "maxLength": 9
         },
         {
-          "id": "auth.business.phone",
+          "id": "foundation.business.phone",
           "name": "phone",
           "columnName": "phone",
           "type": "text",
@@ -370,7 +370,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.business_type",
+          "id": "foundation.business.business_type",
           "name": "business_type",
           "columnName": "business_type",
           "type": "text",
@@ -384,7 +384,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.industry",
+          "id": "foundation.business.industry",
           "name": "industry",
           "columnName": "industry",
           "type": "text",
@@ -398,7 +398,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.date_business_began",
+          "id": "foundation.business.date_business_began",
           "name": "date_business_began",
           "columnName": "date_business_began",
           "type": "date",
@@ -412,7 +412,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.revenue_average",
+          "id": "foundation.business.revenue_average",
           "name": "revenue_average",
           "columnName": "revenue_average",
           "type": "float8",
@@ -426,7 +426,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business.debt",
+          "id": "foundation.business.debt",
           "name": "debt",
           "columnName": "debt",
           "type": "float8",
@@ -454,39 +454,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "organization_business",
-          "type": "organization_business",
+          "name": "opportunity",
+          "type": "opportunity",
           "isRequired": false,
           "kind": "object",
-          "relationName": "organization_businessTobusiness",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_prod_opportunity",
-          "type": "example_prod_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_prod_opportunityTobusiness",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity",
-          "type": "example_uat_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunityTobusiness",
+          "relationName": "opportunityTobusiness",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -525,12 +497,12 @@
       ]
     },
     "business_user": {
-      "id": "auth.business_user",
-      "schemaName": "auth",
+      "id": "foundation.business_user",
+      "schemaName": "foundation",
       "tableName": "business_user",
       "fields": [
         {
-          "id": "auth.business_user.id",
+          "id": "foundation.business_user.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -544,7 +516,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.created_at",
+          "id": "foundation.business_user.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -558,7 +530,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.updated_at",
+          "id": "foundation.business_user.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -572,7 +544,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.business_id",
+          "id": "foundation.business_user.business_id",
           "name": "business_id",
           "columnName": "business_id",
           "type": "uuid",
@@ -586,7 +558,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.user_id",
+          "id": "foundation.business_user.user_id",
           "name": "user_id",
           "columnName": "user_id",
           "type": "uuid",
@@ -600,7 +572,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.job_title",
+          "id": "foundation.business_user.job_title",
           "name": "job_title",
           "columnName": "job_title",
           "type": "text",
@@ -614,7 +586,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.owernship",
+          "id": "foundation.business_user.owernship",
           "name": "owernship",
           "columnName": "owernship",
           "type": "float8",
@@ -628,7 +600,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.income_average_monthly",
+          "id": "foundation.business_user.income_average_monthly",
           "name": "income_average_monthly",
           "columnName": "income_average_monthly",
           "type": "float8",
@@ -642,7 +614,7 @@
           "maxLength": null
         },
         {
-          "id": "auth.business_user.expense_average_monthly",
+          "id": "foundation.business_user.expense_average_monthly",
           "name": "expense_average_monthly",
           "columnName": "expense_average_monthly",
           "type": "float8",
@@ -656,12 +628,12 @@
           "maxLength": null
         },
         {
-          "name": "business",
-          "type": "business",
+          "name": "user",
+          "type": "user",
           "isRequired": true,
           "kind": "object",
-          "relationName": "business_userTobusiness",
-          "relationFromFields": ["business_id"],
+          "relationName": "business_userTouser",
+          "relationFromFields": ["user_id"],
           "relationToFields": ["id"],
           "isList": false,
           "isId": false,
@@ -670,12 +642,12 @@
           "hasDefaultValue": false
         },
         {
-          "name": "user",
-          "type": "user",
+          "name": "business",
+          "type": "business",
           "isRequired": true,
           "kind": "object",
-          "relationName": "business_userTouser",
-          "relationFromFields": ["user_id"],
+          "relationName": "business_userTobusiness",
+          "relationFromFields": ["business_id"],
           "relationToFields": ["id"],
           "isList": false,
           "isId": false,
@@ -697,13 +669,13 @@
         }
       ]
     },
-    "example_prod_deal": {
-      "id": "example_prod.deal",
-      "schemaName": "example_prod",
+    "deal": {
+      "id": "foundation.deal",
+      "schemaName": "foundation",
       "tableName": "deal",
       "fields": [
         {
-          "id": "example_prod.deal.id",
+          "id": "foundation.deal.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -717,7 +689,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.external_id",
+          "id": "foundation.deal.external_id",
           "name": "external_id",
           "columnName": "external_id",
           "type": "text",
@@ -731,7 +703,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.created_at",
+          "id": "foundation.deal.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -745,7 +717,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.updated_at",
+          "id": "foundation.deal.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -759,7 +731,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.opportunity_id",
+          "id": "foundation.deal.opportunity_id",
           "name": "opportunity_id",
           "columnName": "opportunity_id",
           "type": "uuid",
@@ -773,7 +745,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.source",
+          "id": "foundation.deal.source",
           "name": "source",
           "columnName": "source",
           "type": "text",
@@ -787,7 +759,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.assignee_id",
+          "id": "foundation.deal.assignee_id",
           "name": "assignee_id",
           "columnName": "assignee_id",
           "type": "uuid",
@@ -801,11 +773,11 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.creator_id",
+          "id": "foundation.deal.creator_id",
           "name": "creator_id",
           "columnName": "creator_id",
           "type": "uuid",
-          "isRequired": false,
+          "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -815,7 +787,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.winnability",
+          "id": "foundation.deal.winnability",
           "name": "winnability",
           "columnName": "winnability",
           "type": "int4",
@@ -829,7 +801,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.appetite",
+          "id": "foundation.deal.appetite",
           "name": "appetite",
           "columnName": "appetite",
           "type": "int4",
@@ -843,7 +815,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.ssbs_score",
+          "id": "foundation.deal.ssbs_score",
           "name": "ssbs_score",
           "columnName": "ssbs_score",
           "type": "int4",
@@ -857,7 +829,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.loan_amount",
+          "id": "foundation.deal.loan_amount",
           "name": "loan_amount",
           "columnName": "loan_amount",
           "type": "numeric",
@@ -871,7 +843,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.interest_rate",
+          "id": "foundation.deal.interest_rate",
           "name": "interest_rate",
           "columnName": "interest_rate",
           "type": "numeric",
@@ -885,7 +857,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.loan_processing_fee",
+          "id": "foundation.deal.loan_processing_fee",
           "name": "loan_processing_fee",
           "columnName": "loan_processing_fee",
           "type": "numeric",
@@ -899,7 +871,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.status_id",
+          "id": "foundation.deal.status_id",
           "name": "status_id",
           "columnName": "status_id",
           "type": "uuid",
@@ -913,7 +885,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.label",
+          "id": "foundation.deal.label",
           "name": "label",
           "columnName": "label",
           "type": "text",
@@ -927,7 +899,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal.userId",
+          "id": "foundation.deal.userId",
           "name": "userId",
           "columnName": "userId",
           "type": "uuid",
@@ -941,11 +913,11 @@
           "maxLength": null
         },
         {
-          "name": "user_example_prod_deal_assignee_idTouser",
+          "name": "user_deal_assignee_idTouser",
           "type": "user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_deal_assignee_idTouser",
+          "relationName": "deal_assignee_idTouser",
           "relationFromFields": ["assignee_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -955,11 +927,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "user_example_prod_deal_creator_idTouser",
+          "name": "user_deal_creator_idTouser",
           "type": "user",
-          "isRequired": false,
+          "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_deal_creator_idTouser",
+          "relationName": "deal_creator_idTouser",
           "relationFromFields": ["creator_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -969,11 +941,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal_status",
-          "type": "example_prod_deal_status",
+          "name": "deal_status",
+          "type": "deal_status",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_dealToexample_prod_deal_status",
+          "relationName": "dealTodeal_status",
           "relationFromFields": ["status_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -983,11 +955,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_opportunity",
-          "type": "example_prod_opportunity",
+          "name": "opportunity",
+          "type": "opportunity",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_dealToexample_prod_opportunity",
+          "relationName": "dealToopportunity",
           "relationFromFields": ["opportunity_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -997,11 +969,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal_user",
-          "type": "example_prod_deal_user",
+          "name": "deal_user",
+          "type": "deal_user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_deal_userToexample_prod_deal",
+          "relationName": "deal_userTodeal",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -1011,11 +983,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_opportunity",
-          "type": "example_prod_opportunity",
+          "name": "opportunity",
+          "type": "opportunity",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunityToexample_prod_deal",
+          "relationName": "opportunityTodeal",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -1025,11 +997,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_property",
-          "type": "example_prod_property",
+          "name": "property",
+          "type": "property",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_propertyToexample_prod_deal",
+          "relationName": "propertyTodeal",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -1039,11 +1011,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_task",
-          "type": "example_prod_task",
+          "name": "task",
+          "type": "task",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_taskToexample_prod_deal",
+          "relationName": "taskTodeal",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -1061,387 +1033,18 @@
         },
         {
           "name": "deal_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "fields": ["external_id"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_uat_deal": {
-      "id": "example_uat.deal",
-      "schemaName": "example_uat",
-      "tableName": "deal",
-      "fields": [
-        {
-          "id": "example_uat.deal.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.opportunity_id",
-          "name": "opportunity_id",
-          "columnName": "opportunity_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.source",
-          "name": "source",
-          "columnName": "source",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.assignee_id",
-          "name": "assignee_id",
-          "columnName": "assignee_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.creator_id",
-          "name": "creator_id",
-          "columnName": "creator_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.winnability",
-          "name": "winnability",
-          "columnName": "winnability",
-          "type": "int4",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.appetite",
-          "name": "appetite",
-          "columnName": "appetite",
-          "type": "int4",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.ssbs_score",
-          "name": "ssbs_score",
-          "columnName": "ssbs_score",
-          "type": "int4",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.loan_amount",
-          "name": "loan_amount",
-          "columnName": "loan_amount",
-          "type": "numeric",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.interest_rate",
-          "name": "interest_rate",
-          "columnName": "interest_rate",
-          "type": "numeric",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.loan_processing_fee",
-          "name": "loan_processing_fee",
-          "columnName": "loan_processing_fee",
-          "type": "numeric",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.status_id",
-          "name": "status_id",
-          "columnName": "status_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal.userId",
-          "name": "userId",
-          "columnName": "userId",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "user_example_uat_deal_assignee_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_deal_assignee_idTouser",
-          "relationFromFields": ["assignee_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_uat_deal_creator_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_deal_creator_idTouser",
-          "relationFromFields": ["creator_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal_status",
-          "type": "example_uat_deal_status",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_uat_dealToexample_uat_deal_status",
-          "relationFromFields": ["status_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity",
-          "type": "example_uat_opportunity",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_uat_dealToexample_uat_opportunity",
-          "relationFromFields": ["opportunity_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal_user",
-          "type": "example_uat_deal_user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_deal_userToexample_uat_deal",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity",
-          "type": "example_uat_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunityToexample_uat_deal",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_property",
-          "type": "example_uat_property",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_propertyToexample_uat_deal",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_task",
-          "type": "example_uat_task",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_taskToexample_uat_deal",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "deal_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "deal_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_prod_deal_status": {
-      "id": "example_prod.deal_status",
-      "schemaName": "example_prod",
+    "deal_status": {
+      "id": "foundation.deal_status",
+      "schemaName": "foundation",
       "tableName": "deal_status",
       "fields": [
         {
-          "id": "example_prod.deal_status.id",
+          "id": "foundation.deal_status.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -1455,7 +1058,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_status.external_id",
+          "id": "foundation.deal_status.external_id",
           "name": "external_id",
           "columnName": "external_id",
           "type": "text",
@@ -1469,7 +1072,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_status.created_at",
+          "id": "foundation.deal_status.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -1483,7 +1086,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_status.updated_at",
+          "id": "foundation.deal_status.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -1497,7 +1100,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_status.order",
+          "id": "foundation.deal_status.order",
           "name": "order",
           "columnName": "order",
           "type": "int4",
@@ -1511,7 +1114,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_status.label",
+          "id": "foundation.deal_status.label",
           "name": "label",
           "columnName": "label",
           "type": "text",
@@ -1525,11 +1128,11 @@
           "maxLength": null
         },
         {
-          "name": "example_prod_deal",
-          "type": "example_prod_deal",
+          "name": "deal",
+          "type": "deal",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_dealToexample_prod_deal_status",
+          "relationName": "dealTodeal_status",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -1547,145 +1150,23 @@
         },
         {
           "name": "deal_status_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "fields": ["external_id"],
           "nullNotDistinct": false
         },
         {
           "name": "deal_status_label_key",
-          "fields": ["label", "label"],
+          "fields": ["label"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_uat_deal_status": {
-      "id": "example_uat.deal_status",
-      "schemaName": "example_uat",
-      "tableName": "deal_status",
-      "fields": [
-        {
-          "id": "example_uat.deal_status.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_status.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_status.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_status.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_status.order",
-          "name": "order",
-          "columnName": "order",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_status.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "example_uat_deal",
-          "type": "example_uat_deal",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_dealToexample_uat_deal_status",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "deal_status_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "deal_status_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "deal_status_label_key",
-          "fields": ["label", "label"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_prod_deal_user": {
-      "id": "example_prod.deal_user",
-      "schemaName": "example_prod",
+    "deal_user": {
+      "id": "foundation.deal_user",
+      "schemaName": "foundation",
       "tableName": "deal_user",
       "fields": [
         {
-          "id": "example_prod.deal_user.created_at",
+          "id": "foundation.deal_user.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -1699,7 +1180,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_user.updated_at",
+          "id": "foundation.deal_user.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -1713,7 +1194,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_user.user_id",
+          "id": "foundation.deal_user.user_id",
           "name": "user_id",
           "columnName": "user_id",
           "type": "uuid",
@@ -1727,7 +1208,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_user.deal_id",
+          "id": "foundation.deal_user.deal_id",
           "name": "deal_id",
           "columnName": "deal_id",
           "type": "uuid",
@@ -1741,7 +1222,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.deal_user.id",
+          "id": "foundation.deal_user.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -1759,7 +1240,7 @@
           "type": "user",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_deal_userTouser",
+          "relationName": "deal_userTouser",
           "relationFromFields": ["user_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -1769,11 +1250,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal",
-          "type": "example_prod_deal",
+          "name": "deal",
+          "type": "deal",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_deal_userToexample_prod_deal",
+          "relationName": "deal_userTodeal",
           "relationFromFields": ["deal_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -1791,18 +1272,121 @@
         },
         {
           "name": "deal_user_id_key",
-          "fields": ["id", "id"],
+          "fields": ["id"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_uat_deal_user": {
-      "id": "example_uat.deal_user",
-      "schemaName": "example_uat",
-      "tableName": "deal_user",
+    "environment": {
+      "id": "auth.environment",
+      "schemaName": "auth",
+      "tableName": "environment",
       "fields": [
         {
-          "id": "example_uat.deal_user.created_at",
+          "id": "auth.environment.schema",
+          "name": "schema",
+          "columnName": "schema",
+          "type": "schema",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "auth.environment.tenant",
+          "name": "tenant",
+          "columnName": "tenant",
+          "type": "tenant",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "auth.environment.organization_id",
+          "name": "organization_id",
+          "columnName": "organization_id",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "auth.environment.environment_type",
+          "name": "environment_type",
+          "columnName": "environment_type",
+          "type": "environment_type",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "organization",
+          "type": "organization",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "environmentToorganization",
+          "relationFromFields": ["organization_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "environment_pkey",
+          "fields": ["schema"],
+          "nullNotDistinct": false
+        },
+        {
+          "name": "environment_tenant_organization_id_environment_type_key",
+          "fields": ["environment_type", "organization_id", "tenant"],
+          "nullNotDistinct": false
+        }
+      ]
+    },
+    "environment_user": {
+      "id": "foundation.environment_user",
+      "schemaName": "foundation",
+      "tableName": "environment_user",
+      "fields": [
+        {
+          "id": "foundation.environment_user.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.environment_user.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -1816,7 +1400,7 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.deal_user.updated_at",
+          "id": "foundation.environment_user.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -1830,37 +1414,23 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.deal_user.user_id",
+          "id": "foundation.environment_user.role_slug",
+          "name": "role_slug",
+          "columnName": "role_slug",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.environment_user.user_id",
           "name": "user_id",
           "columnName": "user_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_user.deal_id",
-          "name": "deal_id",
-          "columnName": "deal_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.deal_user.id",
-          "name": "id",
-          "columnName": "id",
           "type": "uuid",
           "isRequired": true,
           "kind": "scalar",
@@ -1876,7 +1446,7 @@
           "type": "user",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_uat_deal_userTouser",
+          "relationName": "environment_userTouser",
           "relationFromFields": ["user_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -1886,13 +1456,13 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_uat_deal",
-          "type": "example_uat_deal",
+          "name": "role",
+          "type": "role",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_uat_deal_userToexample_uat_deal",
-          "relationFromFields": ["deal_id"],
-          "relationToFields": ["id"],
+          "relationName": "environment_userTorole",
+          "relationFromFields": ["role_slug"],
+          "relationToFields": ["slug"],
           "isList": false,
           "isId": false,
           "isGenerated": false,
@@ -1902,24 +1472,24 @@
       ],
       "uniqueConstraints": [
         {
-          "name": "deal_user_pkey",
-          "fields": ["deal_id", "user_id"],
+          "name": "environment_user_pkey",
+          "fields": ["id"],
           "nullNotDistinct": false
         },
         {
-          "name": "deal_user_id_key",
-          "fields": ["id", "id"],
+          "name": "environment_user_user_id_key",
+          "fields": ["user_id"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_prod_opportunity": {
-      "id": "example_prod.opportunity",
-      "schemaName": "example_prod",
+    "opportunity": {
+      "id": "foundation.opportunity",
+      "schemaName": "foundation",
       "tableName": "opportunity",
       "fields": [
         {
-          "id": "example_prod.opportunity.id",
+          "id": "foundation.opportunity.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -1933,7 +1503,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.external_id",
+          "id": "foundation.opportunity.external_id",
           "name": "external_id",
           "columnName": "external_id",
           "type": "text",
@@ -1947,7 +1517,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.created_at",
+          "id": "foundation.opportunity.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -1961,7 +1531,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.updated_at",
+          "id": "foundation.opportunity.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -1975,7 +1545,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.label",
+          "id": "foundation.opportunity.label",
           "name": "label",
           "columnName": "label",
           "type": "text",
@@ -1989,7 +1559,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.active_deal_id",
+          "id": "foundation.opportunity.active_deal_id",
           "name": "active_deal_id",
           "columnName": "active_deal_id",
           "type": "uuid",
@@ -2003,7 +1573,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.assignee_id",
+          "id": "foundation.opportunity.assignee_id",
           "name": "assignee_id",
           "columnName": "assignee_id",
           "type": "uuid",
@@ -2017,11 +1587,11 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.creator_id",
+          "id": "foundation.opportunity.creator_id",
           "name": "creator_id",
           "columnName": "creator_id",
           "type": "uuid",
-          "isRequired": false,
+          "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -2031,7 +1601,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.borrower_user_id",
+          "id": "foundation.opportunity.borrower_user_id",
           "name": "borrower_user_id",
           "columnName": "borrower_user_id",
           "type": "uuid",
@@ -2045,7 +1615,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.borrower_business_id",
+          "id": "foundation.opportunity.borrower_business_id",
           "name": "borrower_business_id",
           "columnName": "borrower_business_id",
           "type": "uuid",
@@ -2059,7 +1629,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.opportunity.agent_id",
+          "id": "foundation.opportunity.agent_id",
           "name": "agent_id",
           "columnName": "agent_id",
           "type": "uuid",
@@ -2073,25 +1643,11 @@
           "maxLength": null
         },
         {
-          "name": "business",
-          "type": "business",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_prod_opportunityTobusiness",
-          "relationFromFields": ["borrower_business_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_prod_opportunity_agent_idTouser",
+          "name": "user_opportunity_agent_idTouser",
           "type": "user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_agent_idTouser",
+          "relationName": "opportunity_agent_idTouser",
           "relationFromFields": ["agent_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -2101,11 +1657,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "user_example_prod_opportunity_assignee_idTouser",
+          "name": "user_opportunity_assignee_idTouser",
           "type": "user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_assignee_idTouser",
+          "relationName": "opportunity_assignee_idTouser",
           "relationFromFields": ["assignee_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -2115,11 +1671,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "user_example_prod_opportunity_borrower_user_idTouser",
+          "name": "user_opportunity_borrower_user_idTouser",
           "type": "user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_borrower_user_idTouser",
+          "relationName": "opportunity_borrower_user_idTouser",
           "relationFromFields": ["borrower_user_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -2129,11 +1685,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "user_example_prod_opportunity_creator_idTouser",
+          "name": "user_opportunity_creator_idTouser",
           "type": "user",
-          "isRequired": false,
+          "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_opportunity_creator_idTouser",
+          "relationName": "opportunity_creator_idTouser",
           "relationFromFields": ["creator_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -2143,11 +1699,25 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal",
-          "type": "example_prod_deal",
+          "name": "business",
+          "type": "business",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunityToexample_prod_deal",
+          "relationName": "opportunityTobusiness",
+          "relationFromFields": ["borrower_business_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "deal",
+          "type": "deal",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "opportunityTodeal",
           "relationFromFields": ["active_deal_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -2157,11 +1727,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal",
-          "type": "example_prod_deal",
+          "name": "deal",
+          "type": "deal",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_dealToexample_prod_opportunity",
+          "relationName": "dealToopportunity",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -2179,288 +1749,12 @@
         },
         {
           "name": "opportunity_active_deal_id_key",
-          "fields": ["active_deal_id", "active_deal_id"],
+          "fields": ["active_deal_id"],
           "nullNotDistinct": false
         },
         {
           "name": "opportunity_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_uat_opportunity": {
-      "id": "example_uat.opportunity",
-      "schemaName": "example_uat",
-      "tableName": "opportunity",
-      "fields": [
-        {
-          "id": "example_uat.opportunity.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.active_deal_id",
-          "name": "active_deal_id",
-          "columnName": "active_deal_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.assignee_id",
-          "name": "assignee_id",
-          "columnName": "assignee_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.creator_id",
-          "name": "creator_id",
-          "columnName": "creator_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.borrower_user_id",
-          "name": "borrower_user_id",
-          "columnName": "borrower_user_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.borrower_business_id",
-          "name": "borrower_business_id",
-          "columnName": "borrower_business_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.opportunity.agent_id",
-          "name": "agent_id",
-          "columnName": "agent_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "business",
-          "type": "business",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunityTobusiness",
-          "relationFromFields": ["borrower_business_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_uat_opportunity_agent_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_agent_idTouser",
-          "relationFromFields": ["agent_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_uat_opportunity_assignee_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_assignee_idTouser",
-          "relationFromFields": ["assignee_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_uat_opportunity_borrower_user_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_borrower_user_idTouser",
-          "relationFromFields": ["borrower_user_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_uat_opportunity_creator_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_creator_idTouser",
-          "relationFromFields": ["creator_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal",
-          "type": "example_uat_deal",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunityToexample_uat_deal",
-          "relationFromFields": ["active_deal_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal",
-          "type": "example_uat_deal",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_dealToexample_uat_opportunity",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "opportunity_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "opportunity_active_deal_id_key",
-          "fields": ["active_deal_id", "active_deal_id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "opportunity_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "fields": ["external_id"],
           "nullNotDistinct": false
         }
       ]
@@ -2541,20 +1835,6 @@
           "maxLength": null
         },
         {
-          "id": "auth.organization.name",
-          "name": "name",
-          "columnName": "name",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
           "id": "auth.organization.clerk_id",
           "name": "clerk_id",
           "columnName": "clerk_id",
@@ -2569,39 +1849,25 @@
           "maxLength": 255
         },
         {
-          "id": "auth.organization.environment_type",
-          "name": "environment_type",
-          "columnName": "environment_type",
-          "type": "environment_type",
+          "id": "auth.organization.label",
+          "name": "label",
+          "columnName": "label",
+          "type": "text",
           "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
           "sequence": false,
-          "hasDefaultValue": true,
+          "hasDefaultValue": false,
           "isId": false,
           "maxLength": null
         },
         {
-          "name": "organization_business",
-          "type": "organization_business",
+          "name": "environment",
+          "type": "environment",
           "isRequired": false,
           "kind": "object",
-          "relationName": "organization_businessToorganization",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "organization_user",
-          "type": "organization_user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "organization_userToorganization",
+          "relationName": "environmentToorganization",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -2628,267 +1894,19 @@
           "nullNotDistinct": false
         },
         {
-          "name": "organization_tenant_key",
-          "fields": ["tenant"],
+          "name": "organization_tenant_id_key",
+          "fields": ["id", "tenant"],
           "nullNotDistinct": false
         }
       ]
     },
-    "organization_business": {
-      "id": "auth.organization_business",
-      "schemaName": "auth",
-      "tableName": "organization_business",
-      "fields": [
-        {
-          "id": "auth.organization_business.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_business.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_business.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_business.organization_id",
-          "name": "organization_id",
-          "columnName": "organization_id",
-          "type": "varchar",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": 255
-        },
-        {
-          "id": "auth.organization_business.business_id",
-          "name": "business_id",
-          "columnName": "business_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "business",
-          "type": "business",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "organization_businessTobusiness",
-          "relationFromFields": ["business_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "organization",
-          "type": "organization",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "organization_businessToorganization",
-          "relationFromFields": ["organization_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "organization_business_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "organization_business_organization_id_business_id_key",
-          "fields": ["business_id", "organization_id"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "organization_user": {
-      "id": "auth.organization_user",
-      "schemaName": "auth",
-      "tableName": "organization_user",
-      "fields": [
-        {
-          "id": "auth.organization_user.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_user.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_user.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_user.organization_id",
-          "name": "organization_id",
-          "columnName": "organization_id",
-          "type": "varchar",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": 255
-        },
-        {
-          "id": "auth.organization_user.user_id",
-          "name": "user_id",
-          "columnName": "user_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "auth.organization_user.role",
-          "name": "role",
-          "columnName": "role",
-          "type": "role",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "organization",
-          "type": "organization",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "organization_userToorganization",
-          "relationFromFields": ["organization_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user",
-          "type": "user",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "organization_userTouser",
-          "relationFromFields": ["user_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "organization_user_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "organization_user_organization_id_user_id_role_key",
-          "fields": ["organization_id", "role", "user_id"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_prod_property": {
-      "id": "example_prod.property",
-      "schemaName": "example_prod",
+    "property": {
+      "id": "foundation.property",
+      "schemaName": "foundation",
       "tableName": "property",
       "fields": [
         {
-          "id": "example_prod.property.id",
+          "id": "foundation.property.id",
           "name": "id",
           "columnName": "id",
           "type": "uuid",
@@ -2902,7 +1920,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.external_id",
+          "id": "foundation.property.external_id",
           "name": "external_id",
           "columnName": "external_id",
           "type": "text",
@@ -2916,7 +1934,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.created_at",
+          "id": "foundation.property.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -2930,7 +1948,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.updated_at",
+          "id": "foundation.property.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -2944,7 +1962,91 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.description",
+          "id": "foundation.property.address",
+          "name": "address",
+          "columnName": "address",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.property.address_line_2",
+          "name": "address_line_2",
+          "columnName": "address_line_2",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.property.city",
+          "name": "city",
+          "columnName": "city",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "id": "foundation.property.zip_code",
+          "name": "zip_code",
+          "columnName": "zip_code",
+          "type": "varchar",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": 255
+        },
+        {
+          "id": "foundation.property.state",
+          "name": "state",
+          "columnName": "state",
+          "type": "state_usa",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.property.county",
+          "name": "county",
+          "columnName": "county",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.property.description",
           "name": "description",
           "columnName": "description",
           "type": "text",
@@ -2958,7 +2060,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.tags",
+          "id": "foundation.property.tags",
           "name": "tags",
           "columnName": "tags",
           "type": "text[]",
@@ -2972,7 +2074,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.year_built",
+          "id": "foundation.property.year_built",
           "name": "year_built",
           "columnName": "year_built",
           "type": "int4",
@@ -2986,7 +2088,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.area_sq_km",
+          "id": "foundation.property.area_sq_km",
           "name": "area_sq_km",
           "columnName": "area_sq_km",
           "type": "float8",
@@ -3000,7 +2102,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.type",
+          "id": "foundation.property.type",
           "name": "type",
           "columnName": "type",
           "type": "property_type",
@@ -3014,7 +2116,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.amenities",
+          "id": "foundation.property.amenities",
           "name": "amenities",
           "columnName": "amenities",
           "type": "text[]",
@@ -3028,7 +2130,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.submitted_at",
+          "id": "foundation.property.submitted_at",
           "name": "submitted_at",
           "columnName": "submitted_at",
           "type": "timestamp",
@@ -3042,7 +2144,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.last_census_at",
+          "id": "foundation.property.last_census_at",
           "name": "last_census_at",
           "columnName": "last_census_at",
           "type": "timestamp",
@@ -3056,7 +2158,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.building_type",
+          "id": "foundation.property.building_type",
           "name": "building_type",
           "columnName": "building_type",
           "type": "building_type",
@@ -3070,7 +2172,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.property.deal_id",
+          "id": "foundation.property.deal_id",
           "name": "deal_id",
           "columnName": "deal_id",
           "type": "uuid",
@@ -3084,11 +2186,11 @@
           "maxLength": null
         },
         {
-          "name": "example_prod_deal",
-          "type": "example_prod_deal",
+          "name": "deal",
+          "type": "deal",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_prod_propertyToexample_prod_deal",
+          "relationName": "propertyTodeal",
           "relationFromFields": ["deal_id"],
           "relationToFields": ["id"],
           "isList": false,
@@ -3106,21 +2208,21 @@
         },
         {
           "name": "property_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "fields": ["external_id"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_uat_property": {
-      "id": "example_uat.property",
-      "schemaName": "example_uat",
-      "tableName": "property",
+    "q_columns": {
+      "id": "foundation.q_columns",
+      "schemaName": "foundation",
+      "tableName": "q_columns",
       "fields": [
         {
-          "id": "example_uat.property.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
+          "id": "foundation.q_columns.name",
+          "name": "name",
+          "columnName": "name",
+          "type": "text",
           "isRequired": true,
           "kind": "scalar",
           "isList": false,
@@ -3131,9 +2233,23 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.property.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
+          "id": "foundation.q_columns.q_view_name",
+          "name": "q_view_name",
+          "columnName": "q_view_name",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.q_columns.table_name",
+          "name": "table_name",
+          "columnName": "table_name",
           "type": "text",
           "isRequired": false,
           "kind": "scalar",
@@ -3145,7 +2261,21 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.property.created_at",
+          "id": "foundation.q_columns.table_column_name",
+          "name": "table_column_name",
+          "columnName": "table_column_name",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.q_columns.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -3159,7 +2289,7 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.property.updated_at",
+          "id": "foundation.q_columns.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -3173,136 +2303,10 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.property.description",
-          "name": "description",
-          "columnName": "description",
+          "id": "foundation.q_columns.q_viewName",
+          "name": "q_viewName",
+          "columnName": "q_viewName",
           "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.tags",
-          "name": "tags",
-          "columnName": "tags",
-          "type": "text[]",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.year_built",
-          "name": "year_built",
-          "columnName": "year_built",
-          "type": "int4",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.area_sq_km",
-          "name": "area_sq_km",
-          "columnName": "area_sq_km",
-          "type": "float8",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.type",
-          "name": "type",
-          "columnName": "type",
-          "type": "property_type",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.amenities",
-          "name": "amenities",
-          "columnName": "amenities",
-          "type": "text[]",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.submitted_at",
-          "name": "submitted_at",
-          "columnName": "submitted_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.last_census_at",
-          "name": "last_census_at",
-          "columnName": "last_census_at",
-          "type": "timestamp",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.building_type",
-          "name": "building_type",
-          "columnName": "building_type",
-          "type": "building_type",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.property.deal_id",
-          "name": "deal_id",
-          "columnName": "deal_id",
-          "type": "uuid",
           "isRequired": true,
           "kind": "scalar",
           "isList": false,
@@ -3313,13 +2317,13 @@
           "maxLength": null
         },
         {
-          "name": "example_uat_deal",
-          "type": "example_uat_deal",
+          "name": "q_view",
+          "type": "q_view",
           "isRequired": true,
           "kind": "object",
-          "relationName": "example_uat_propertyToexample_uat_deal",
-          "relationFromFields": ["deal_id"],
-          "relationToFields": ["id"],
+          "relationName": "q_columnsToq_view",
+          "relationFromFields": ["q_viewName"],
+          "relationToFields": ["name"],
           "isList": false,
           "isId": false,
           "isGenerated": false,
@@ -3329,27 +2333,27 @@
       ],
       "uniqueConstraints": [
         {
-          "name": "property_pkey",
-          "fields": ["id"],
+          "name": "q_columns_pkey",
+          "fields": ["name"],
           "nullNotDistinct": false
         },
         {
-          "name": "property_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "name": "q_columns_name_q_view_name_key",
+          "fields": ["name", "q_view_name"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_prod_task": {
-      "id": "example_prod.task",
-      "schemaName": "example_prod",
-      "tableName": "task",
+    "q_view": {
+      "id": "foundation.q_view",
+      "schemaName": "foundation",
+      "tableName": "q_view",
       "fields": [
         {
-          "id": "example_prod.task.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
+          "id": "foundation.q_view.name",
+          "name": "name",
+          "columnName": "name",
+          "type": "text",
           "isRequired": true,
           "kind": "scalar",
           "isList": false,
@@ -3360,11 +2364,11 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
+          "id": "foundation.q_view.root_view",
+          "name": "root_view",
+          "columnName": "root_view",
           "type": "text",
-          "isRequired": false,
+          "isRequired": true,
           "kind": "scalar",
           "isList": false,
           "isGenerated": false,
@@ -3374,7 +2378,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task.created_at",
+          "id": "foundation.q_view.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -3388,7 +2392,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task.updated_at",
+          "id": "foundation.q_view.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -3402,168 +2406,14 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task.title",
-          "name": "title",
-          "columnName": "title",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task.description",
-          "name": "description",
-          "columnName": "description",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task.status_id",
-          "name": "status_id",
-          "columnName": "status_id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task.assignee_id",
-          "name": "assignee_id",
-          "columnName": "assignee_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task.creator_id",
-          "name": "creator_id",
-          "columnName": "creator_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task.deal_id",
-          "name": "deal_id",
-          "columnName": "deal_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task.priority_id",
-          "name": "priority_id",
-          "columnName": "priority_id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "user_example_prod_task_assignee_idTouser",
-          "type": "user",
+          "name": "q_columns",
+          "type": "q_columns",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_task_assignee_idTouser",
-          "relationFromFields": ["assignee_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_prod_task_creator_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_prod_task_creator_idTouser",
-          "relationFromFields": ["creator_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_prod_deal",
-          "type": "example_prod_deal",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_prod_taskToexample_prod_deal",
-          "relationFromFields": ["deal_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_prod_task_priority",
-          "type": "example_prod_task_priority",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_prod_taskToexample_prod_task_priority",
-          "relationFromFields": ["priority_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_prod_task_status",
-          "type": "example_prod_task_status",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_prod_taskToexample_prod_task_status",
-          "relationFromFields": ["status_id"],
-          "relationToFields": ["id"],
-          "isList": false,
+          "relationName": "q_columnsToq_view",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
           "isId": false,
           "isGenerated": false,
           "sequence": false,
@@ -3572,37 +2422,22 @@
       ],
       "uniqueConstraints": [
         {
-          "name": "task_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_description_key",
-          "fields": ["description", "description"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_title_key",
-          "fields": ["title", "title"],
+          "name": "q_view_pkey",
+          "fields": ["name"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_uat_task": {
-      "id": "example_uat.task",
-      "schemaName": "example_uat",
-      "tableName": "task",
+    "role": {
+      "id": "foundation.role",
+      "schemaName": "foundation",
+      "tableName": "role",
       "fields": [
         {
-          "id": "example_uat.task.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "uuid",
+          "id": "foundation.role.slug",
+          "name": "slug",
+          "columnName": "slug",
+          "type": "text",
           "isRequired": true,
           "kind": "scalar",
           "isList": false,
@@ -3613,306 +2448,7 @@
           "maxLength": null
         },
         {
-          "id": "example_uat.task.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.title",
-          "name": "title",
-          "columnName": "title",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.description",
-          "name": "description",
-          "columnName": "description",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.status_id",
-          "name": "status_id",
-          "columnName": "status_id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.assignee_id",
-          "name": "assignee_id",
-          "columnName": "assignee_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.creator_id",
-          "name": "creator_id",
-          "columnName": "creator_id",
-          "type": "uuid",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.deal_id",
-          "name": "deal_id",
-          "columnName": "deal_id",
-          "type": "uuid",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task.priority_id",
-          "name": "priority_id",
-          "columnName": "priority_id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "user_example_uat_task_assignee_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_task_assignee_idTouser",
-          "relationFromFields": ["assignee_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "user_example_uat_task_creator_idTouser",
-          "type": "user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_task_creator_idTouser",
-          "relationFromFields": ["creator_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal",
-          "type": "example_uat_deal",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_uat_taskToexample_uat_deal",
-          "relationFromFields": ["deal_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_task_priority",
-          "type": "example_uat_task_priority",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_uat_taskToexample_uat_task_priority",
-          "relationFromFields": ["priority_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_task_status",
-          "type": "example_uat_task_status",
-          "isRequired": true,
-          "kind": "object",
-          "relationName": "example_uat_taskToexample_uat_task_status",
-          "relationFromFields": ["status_id"],
-          "relationToFields": ["id"],
-          "isList": false,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "task_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_description_key",
-          "fields": ["description", "description"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_title_key",
-          "fields": ["title", "title"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_prod_task_priority": {
-      "id": "example_prod.task_priority",
-      "schemaName": "example_prod",
-      "tableName": "task_priority",
-      "fields": [
-        {
-          "id": "example_prod.task_priority.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": {
-            "identifier": "\"example_prod\".\"task_priority_id_seq\"",
-            "increment": 1,
-            "start": 1
-          },
-          "hasDefaultValue": true,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task_priority.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task_priority.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task_priority.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_prod.task_priority.label",
+          "id": "foundation.role.label",
           "name": "label",
           "columnName": "label",
           "type": "text",
@@ -3926,11 +2462,361 @@
           "maxLength": null
         },
         {
-          "name": "example_prod_task",
-          "type": "example_prod_task",
+          "name": "environment_user",
+          "type": "environment_user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_taskToexample_prod_task_priority",
+          "relationName": "environment_userTorole",
+          "relationFromFields": [],
+          "relationToFields": [],
+          "isList": true,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "role_pkey",
+          "fields": ["slug"],
+          "nullNotDistinct": false
+        },
+        {
+          "name": "role_label_key",
+          "fields": ["label"],
+          "nullNotDistinct": false
+        }
+      ]
+    },
+    "task": {
+      "id": "foundation.task",
+      "schemaName": "foundation",
+      "tableName": "task",
+      "fields": [
+        {
+          "id": "foundation.task.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.external_id",
+          "name": "external_id",
+          "columnName": "external_id",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.created_at",
+          "name": "created_at",
+          "columnName": "created_at",
+          "type": "timestamp",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.updated_at",
+          "name": "updated_at",
+          "columnName": "updated_at",
+          "type": "timestamp",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.title",
+          "name": "title",
+          "columnName": "title",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.description",
+          "name": "description",
+          "columnName": "description",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.status_id",
+          "name": "status_id",
+          "columnName": "status_id",
+          "type": "int4",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.assignee_id",
+          "name": "assignee_id",
+          "columnName": "assignee_id",
+          "type": "uuid",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.creator_id",
+          "name": "creator_id",
+          "columnName": "creator_id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.deal_id",
+          "name": "deal_id",
+          "columnName": "deal_id",
+          "type": "uuid",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task.priority_id",
+          "name": "priority_id",
+          "columnName": "priority_id",
+          "type": "int4",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "user_task_assignee_idTouser",
+          "type": "user",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "task_assignee_idTouser",
+          "relationFromFields": ["assignee_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "user_task_creator_idTouser",
+          "type": "user",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "task_creator_idTouser",
+          "relationFromFields": ["creator_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "deal",
+          "type": "deal",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "taskTodeal",
+          "relationFromFields": ["deal_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "task_priority",
+          "type": "task_priority",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "taskTotask_priority",
+          "relationFromFields": ["priority_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        },
+        {
+          "name": "task_status",
+          "type": "task_status",
+          "isRequired": true,
+          "kind": "object",
+          "relationName": "taskTotask_status",
+          "relationFromFields": ["status_id"],
+          "relationToFields": ["id"],
+          "isList": false,
+          "isId": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false
+        }
+      ],
+      "uniqueConstraints": [
+        {
+          "name": "task_pkey",
+          "fields": ["id"],
+          "nullNotDistinct": false
+        },
+        {
+          "name": "task_external_id_key",
+          "fields": ["external_id"],
+          "nullNotDistinct": false
+        }
+      ]
+    },
+    "task_priority": {
+      "id": "foundation.task_priority",
+      "schemaName": "foundation",
+      "tableName": "task_priority",
+      "fields": [
+        {
+          "id": "foundation.task_priority.id",
+          "name": "id",
+          "columnName": "id",
+          "type": "int4",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": {
+            "identifier": "\"foundation\".\"task_priority_id_seq\"",
+            "increment": 1,
+            "start": 1
+          },
+          "hasDefaultValue": true,
+          "isId": true,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task_priority.external_id",
+          "name": "external_id",
+          "columnName": "external_id",
+          "type": "text",
+          "isRequired": false,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task_priority.created_at",
+          "name": "created_at",
+          "columnName": "created_at",
+          "type": "timestamp",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": true,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task_priority.updated_at",
+          "name": "updated_at",
+          "columnName": "updated_at",
+          "type": "timestamp",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "id": "foundation.task_priority.label",
+          "name": "label",
+          "columnName": "label",
+          "type": "text",
+          "isRequired": true,
+          "kind": "scalar",
+          "isList": false,
+          "isGenerated": false,
+          "sequence": false,
+          "hasDefaultValue": false,
+          "isId": false,
+          "maxLength": null
+        },
+        {
+          "name": "task",
+          "type": "task",
+          "isRequired": false,
+          "kind": "object",
+          "relationName": "taskTotask_priority",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -3948,135 +2834,23 @@
         },
         {
           "name": "task_priority_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "fields": ["external_id"],
           "nullNotDistinct": false
         },
         {
           "name": "task_priority_label_key",
-          "fields": ["label", "label"],
+          "fields": ["label"],
           "nullNotDistinct": false
         }
       ]
     },
-    "example_uat_task_priority": {
-      "id": "example_uat.task_priority",
-      "schemaName": "example_uat",
-      "tableName": "task_priority",
-      "fields": [
-        {
-          "id": "example_uat.task_priority.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": {
-            "identifier": "\"example_uat\".\"task_priority_id_seq\"",
-            "increment": 1,
-            "start": 1
-          },
-          "hasDefaultValue": true,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_priority.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_priority.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_priority.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_priority.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "example_uat_task",
-          "type": "example_uat_task",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_taskToexample_uat_task_priority",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "task_priority_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_priority_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_priority_label_key",
-          "fields": ["label", "label"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_prod_task_status": {
-      "id": "example_prod.task_status",
-      "schemaName": "example_prod",
+    "task_status": {
+      "id": "foundation.task_status",
+      "schemaName": "foundation",
       "tableName": "task_status",
       "fields": [
         {
-          "id": "example_prod.task_status.id",
+          "id": "foundation.task_status.id",
           "name": "id",
           "columnName": "id",
           "type": "int4",
@@ -4085,7 +2859,7 @@
           "isList": false,
           "isGenerated": false,
           "sequence": {
-            "identifier": "\"example_prod\".\"task_status_id_seq\"",
+            "identifier": "\"foundation\".\"task_status_id_seq\"",
             "increment": 1,
             "start": 1
           },
@@ -4094,7 +2868,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task_status.external_id",
+          "id": "foundation.task_status.external_id",
           "name": "external_id",
           "columnName": "external_id",
           "type": "text",
@@ -4108,7 +2882,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task_status.created_at",
+          "id": "foundation.task_status.created_at",
           "name": "created_at",
           "columnName": "created_at",
           "type": "timestamp",
@@ -4122,7 +2896,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task_status.updated_at",
+          "id": "foundation.task_status.updated_at",
           "name": "updated_at",
           "columnName": "updated_at",
           "type": "timestamp",
@@ -4136,7 +2910,7 @@
           "maxLength": null
         },
         {
-          "id": "example_prod.task_status.label",
+          "id": "foundation.task_status.label",
           "name": "label",
           "columnName": "label",
           "type": "text",
@@ -4150,11 +2924,11 @@
           "maxLength": null
         },
         {
-          "name": "example_prod_task",
-          "type": "example_prod_task",
+          "name": "task",
+          "type": "task",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_taskToexample_prod_task_status",
+          "relationName": "taskTotask_status",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4172,124 +2946,12 @@
         },
         {
           "name": "task_status_external_id_key",
-          "fields": ["external_id", "external_id"],
+          "fields": ["external_id"],
           "nullNotDistinct": false
         },
         {
           "name": "task_status_label_key",
-          "fields": ["label", "label"],
-          "nullNotDistinct": false
-        }
-      ]
-    },
-    "example_uat_task_status": {
-      "id": "example_uat.task_status",
-      "schemaName": "example_uat",
-      "tableName": "task_status",
-      "fields": [
-        {
-          "id": "example_uat.task_status.id",
-          "name": "id",
-          "columnName": "id",
-          "type": "int4",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": {
-            "identifier": "\"example_uat\".\"task_status_id_seq\"",
-            "increment": 1,
-            "start": 1
-          },
-          "hasDefaultValue": true,
-          "isId": true,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_status.external_id",
-          "name": "external_id",
-          "columnName": "external_id",
-          "type": "text",
-          "isRequired": false,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_status.created_at",
-          "name": "created_at",
-          "columnName": "created_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": true,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_status.updated_at",
-          "name": "updated_at",
-          "columnName": "updated_at",
-          "type": "timestamp",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "id": "example_uat.task_status.label",
-          "name": "label",
-          "columnName": "label",
-          "type": "text",
-          "isRequired": true,
-          "kind": "scalar",
-          "isList": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false,
-          "isId": false,
-          "maxLength": null
-        },
-        {
-          "name": "example_uat_task",
-          "type": "example_uat_task",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_taskToexample_uat_task_status",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        }
-      ],
-      "uniqueConstraints": [
-        {
-          "name": "task_status_pkey",
-          "fields": ["id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_status_external_id_key",
-          "fields": ["external_id", "external_id"],
-          "nullNotDistinct": false
-        },
-        {
-          "name": "task_status_label_key",
-          "fields": ["label", "label"],
+          "fields": ["label"],
           "nullNotDistinct": false
         }
       ]
@@ -4552,11 +3214,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "organization_user",
-          "type": "organization_user",
+          "name": "deal_deal_assignee_idTouser",
+          "type": "deal",
           "isRequired": false,
           "kind": "object",
-          "relationName": "organization_userTouser",
+          "relationName": "deal_assignee_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4566,11 +3228,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal_example_prod_deal_assignee_idTouser",
-          "type": "example_prod_deal",
+          "name": "deal_deal_creator_idTouser",
+          "type": "deal",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_deal_assignee_idTouser",
+          "relationName": "deal_creator_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4580,11 +3242,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal_example_prod_deal_creator_idTouser",
-          "type": "example_prod_deal",
+          "name": "deal_user",
+          "type": "deal_user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_deal_creator_idTouser",
+          "relationName": "deal_userTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4594,11 +3256,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_deal_user",
-          "type": "example_prod_deal_user",
+          "name": "environment_user",
+          "type": "environment_user",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_deal_userTouser",
+          "relationName": "environment_userTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4608,11 +3270,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_opportunity_example_prod_opportunity_agent_idTouser",
-          "type": "example_prod_opportunity",
+          "name": "opportunity_opportunity_agent_idTouser",
+          "type": "opportunity",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_agent_idTouser",
+          "relationName": "opportunity_agent_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4622,11 +3284,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_opportunity_example_prod_opportunity_assignee_idTouser",
-          "type": "example_prod_opportunity",
+          "name": "opportunity_opportunity_assignee_idTouser",
+          "type": "opportunity",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_assignee_idTouser",
+          "relationName": "opportunity_assignee_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4636,11 +3298,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_opportunity_example_prod_opportunity_borrower_user_idTouser",
-          "type": "example_prod_opportunity",
+          "name": "opportunity_opportunity_borrower_user_idTouser",
+          "type": "opportunity",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_borrower_user_idTouser",
+          "relationName": "opportunity_borrower_user_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4650,11 +3312,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_opportunity_example_prod_opportunity_creator_idTouser",
-          "type": "example_prod_opportunity",
+          "name": "opportunity_opportunity_creator_idTouser",
+          "type": "opportunity",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_opportunity_creator_idTouser",
+          "relationName": "opportunity_creator_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4664,11 +3326,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_task_example_prod_task_assignee_idTouser",
-          "type": "example_prod_task",
+          "name": "task_task_assignee_idTouser",
+          "type": "task",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_task_assignee_idTouser",
+          "relationName": "task_assignee_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4678,137 +3340,11 @@
           "hasDefaultValue": false
         },
         {
-          "name": "example_prod_task_example_prod_task_creator_idTouser",
-          "type": "example_prod_task",
+          "name": "task_task_creator_idTouser",
+          "type": "task",
           "isRequired": false,
           "kind": "object",
-          "relationName": "example_prod_task_creator_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal_example_uat_deal_assignee_idTouser",
-          "type": "example_uat_deal",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_deal_assignee_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal_example_uat_deal_creator_idTouser",
-          "type": "example_uat_deal",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_deal_creator_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_deal_user",
-          "type": "example_uat_deal_user",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_deal_userTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity_example_uat_opportunity_agent_idTouser",
-          "type": "example_uat_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_agent_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity_example_uat_opportunity_assignee_idTouser",
-          "type": "example_uat_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_assignee_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity_example_uat_opportunity_borrower_user_idTouser",
-          "type": "example_uat_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_borrower_user_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_opportunity_example_uat_opportunity_creator_idTouser",
-          "type": "example_uat_opportunity",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_opportunity_creator_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_task_example_uat_task_assignee_idTouser",
-          "type": "example_uat_task",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_task_assignee_idTouser",
-          "relationFromFields": [],
-          "relationToFields": [],
-          "isList": true,
-          "isId": false,
-          "isGenerated": false,
-          "sequence": false,
-          "hasDefaultValue": false
-        },
-        {
-          "name": "example_uat_task_example_uat_task_creator_idTouser",
-          "type": "example_uat_task",
-          "isRequired": false,
-          "kind": "object",
-          "relationName": "example_uat_task_creator_idTouser",
+          "relationName": "task_creator_idTouser",
           "relationFromFields": [],
           "relationToFields": [],
           "isList": true,
@@ -4843,14 +3379,19 @@
     }
   },
   "enums": {
+    "schema": {
+      "schemaName": "auth",
+      "values": [
+        {
+          "name": "foundation"
+        }
+      ]
+    },
     "tenant": {
       "schemaName": "auth",
       "values": [
         {
-          "name": "example_prod"
-        },
-        {
-          "name": "example_uat"
+          "name": "foundation"
         }
       ]
     },
@@ -4887,26 +3428,6 @@
         },
         {
           "name": "residential"
-        }
-      ]
-    },
-    "role": {
-      "schemaName": "public",
-      "values": [
-        {
-          "name": "agent"
-        },
-        {
-          "name": "borrower"
-        },
-        {
-          "name": "organization_admin"
-        },
-        {
-          "name": "read_only"
-        },
-        {
-          "name": "underwriter"
         }
       ]
     },

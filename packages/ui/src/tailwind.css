@@ -73,3 +73,16 @@
     @apply font-medium text-blue-600 hover:underline dark:text-blue-500;
   }
 }
+
+.ag-cell-label-container {
+  padding: 0px !important;
+}
+
+.ag-header {
+  background-color: rgb(247, 249, 250) !important;
+}
+
+.ag-header-row {
+  font-weight: 800 !important;
+  color: rgb(75 85 99) !important;
+}

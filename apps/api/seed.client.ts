@@ -8,12 +8,5 @@ export default defineConfig({
     await client.connect();
     return new SeedPg(client);
   },
-  // TODO: This doesnt seem to work
-  select: [
-    '!*_prisma_migrations',
-    // We want to alter all the tables under public schema
-    'public*',
-    // We also want to alter some of the tables under the auth schema
-    'auth.*',
-  ],
+  select: ['!*_prisma_migrations'],
 });

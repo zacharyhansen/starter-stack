@@ -1,7 +1,6 @@
 import type { CustomCellRendererProps } from 'ag-grid-react';
 import clsx from 'clsx';
 import { Copy } from 'lucide-react';
-import type { User } from '@repo/postgres-types';
 import {
   Avatar,
   AvatarFallback,
@@ -11,13 +10,16 @@ import { Button } from '@repo/ui/components/button';
 import { toast } from '@repo/ui/components/sonner';
 
 import { stringToTailwindColor } from '~/modules/utils/tailwind';
+import type { TablesFoundation } from '~/lib/database/helpers';
 
-const UserCell = ({ value }: CustomCellRendererProps<unknown, User>) => {
-  const { email, id, name } = value ?? {};
+const UserCell = ({
+  value,
+}: CustomCellRendererProps<unknown, TablesFoundation<'q_user'>>) => {
+  const { email, id, name } = value || {};
   return (
     <div className="flex items-center space-x-2 p-1">
       <div className="flex-shrink-0">
-        <Avatar>
+        <Avatar className="h-8 w-8">
           {/* TODO: add image to user model */}
           <AvatarImage src={undefined} alt="avatar" />
           <AvatarFallback

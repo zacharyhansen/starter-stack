@@ -1,6 +1,6 @@
-const { resolve } = require('node:path')
+const { resolve } = require('node:path');
 
-const project = resolve(process.cwd(), 'tsconfig.json')
+const project = resolve(process.cwd(), 'tsconfig.json');
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
@@ -129,6 +129,7 @@ module.exports = {
       },
     ],
     'sonarjs/pseudo-random': 'off',
+    'sonarjs/pseudo-random': 'off',
     'sonarjs/no-array-index-key': 'off',
     'sonarjs/no-nested-conditional': 'off',
     'sonarjs/function-return-type': 'off',
@@ -176,6 +177,7 @@ module.exports = {
       },
     ],
     '@trilon/detect-circular-reference': 'off',
+    '@trilon/check-inject-decorator': 'off',
     'nestjs/use-validation-pipe': 'off',
   },
-}
+};

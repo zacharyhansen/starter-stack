@@ -30,122 +30,158 @@ interface BaseProps {
   children: React.ReactNode;
 }
 
-interface RootCredenzaProps extends BaseProps {
+interface RootResponsiveDialogProps extends BaseProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
-interface CredenzaProps extends BaseProps {
+interface ResponsiveDialogProps extends BaseProps {
   className?: string;
   asChild?: true;
 }
 
 const desktop = '(min-width: 768px)';
 
-const Credenza = ({ children, ...props }: RootCredenzaProps) => {
+const ResponsiveDialog = ({
+  children,
+  ...props
+}: RootResponsiveDialogProps) => {
   const isDesktop = useMediaQuery(desktop);
-  const Credenza = isDesktop ? Dialog : Drawer;
+  const ResponsiveDialog = isDesktop ? Dialog : Drawer;
 
-  return <Credenza {...props}>{children}</Credenza>;
+  return <ResponsiveDialog {...props}>{children}</ResponsiveDialog>;
 };
 
-const CredenzaTrigger = ({ className, children, ...props }: CredenzaProps) => {
-  const isDesktop = useMediaQuery(desktop);
-  const CredenzaTrigger = isDesktop ? DialogTrigger : DrawerTrigger;
-
-  return (
-    <CredenzaTrigger className={className} {...props}>
-      {children}
-    </CredenzaTrigger>
-  );
-};
-
-const CredenzaClose = ({ className, children, ...props }: CredenzaProps) => {
-  const isDesktop = useMediaQuery(desktop);
-  const CredenzaClose = isDesktop ? DialogClose : DrawerClose;
-
-  return (
-    <CredenzaClose className={className} {...props}>
-      {children}
-    </CredenzaClose>
-  );
-};
-
-const CredenzaContent = ({ className, children, ...props }: CredenzaProps) => {
-  const isDesktop = useMediaQuery(desktop);
-  const CredenzaContent = isDesktop ? DialogContent : DrawerContent;
-
-  return (
-    <CredenzaContent className={className} {...props}>
-      {children}
-    </CredenzaContent>
-  );
-};
-
-const CredenzaDescription = ({
+const ResponsiveDialogTrigger = ({
   className,
   children,
   ...props
-}: CredenzaProps) => {
+}: ResponsiveDialogProps) => {
   const isDesktop = useMediaQuery(desktop);
-  const CredenzaDescription = isDesktop ? DialogDescription : DrawerDescription;
+  const ResponsiveDialogTrigger = isDesktop ? DialogTrigger : DrawerTrigger;
 
   return (
-    <CredenzaDescription className={className} {...props}>
+    <ResponsiveDialogTrigger className={className} {...props}>
       {children}
-    </CredenzaDescription>
+    </ResponsiveDialogTrigger>
   );
 };
 
-const CredenzaHeader = ({ className, children, ...props }: CredenzaProps) => {
+const ResponsiveDialogClose = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
   const isDesktop = useMediaQuery(desktop);
-  const CredenzaHeader = isDesktop ? DialogHeader : DrawerHeader;
+  const ResponsiveDialogClose = isDesktop ? DialogClose : DrawerClose;
 
   return (
-    <CredenzaHeader className={className} {...props}>
+    <ResponsiveDialogClose className={className} {...props}>
       {children}
-    </CredenzaHeader>
+    </ResponsiveDialogClose>
   );
 };
 
-const CredenzaTitle = ({ className, children, ...props }: CredenzaProps) => {
+const ResponsiveDialogContent = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
   const isDesktop = useMediaQuery(desktop);
-  const CredenzaTitle = isDesktop ? DialogTitle : DrawerTitle;
+  const ResponsiveDialogContent = isDesktop ? DialogContent : DrawerContent;
 
   return (
-    <CredenzaTitle className={className} {...props}>
+    <ResponsiveDialogContent
+      className={cn('max-h-screen', className)}
+      {...props}
+    >
       {children}
-    </CredenzaTitle>
+    </ResponsiveDialogContent>
   );
 };
 
-const CredenzaBody = ({ className, children, ...props }: CredenzaProps) => {
+const ResponsiveDialogDescription = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
+  const isDesktop = useMediaQuery(desktop);
+  const ResponsiveDialogDescription = isDesktop
+    ? DialogDescription
+    : DrawerDescription;
+
   return (
-    <div className={cn('px-4 md:px-0', className)} {...props}>
+    <ResponsiveDialogDescription className={className} {...props}>
+      {children}
+    </ResponsiveDialogDescription>
+  );
+};
+
+const ResponsiveDialogHeader = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
+  const isDesktop = useMediaQuery(desktop);
+  const ResponsiveDialogHeader = isDesktop ? DialogHeader : DrawerHeader;
+
+  return (
+    <ResponsiveDialogHeader className={className} {...props}>
+      {children}
+    </ResponsiveDialogHeader>
+  );
+};
+
+const ResponsiveDialogTitle = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
+  const isDesktop = useMediaQuery(desktop);
+  const ResponsiveDialogTitle = isDesktop ? DialogTitle : DrawerTitle;
+
+  return (
+    <ResponsiveDialogTitle className={className} {...props}>
+      {children}
+    </ResponsiveDialogTitle>
+  );
+};
+
+const ResponsiveDialogBody = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
+  return (
+    <div className={cn('overflow-auto px-4 md:px-0', className)} {...props}>
       {children}
     </div>
   );
 };
 
-const CredenzaFooter = ({ className, children, ...props }: CredenzaProps) => {
+const ResponsiveDialogFooter = ({
+  className,
+  children,
+  ...props
+}: ResponsiveDialogProps) => {
   const isDesktop = useMediaQuery(desktop);
-  const CredenzaFooter = isDesktop ? DialogFooter : DrawerFooter;
+  const ResponsiveDialogFooter = isDesktop ? DialogFooter : DrawerFooter;
 
   return (
-    <CredenzaFooter className={className} {...props}>
+    <ResponsiveDialogFooter className={className} {...props}>
       {children}
-    </CredenzaFooter>
+    </ResponsiveDialogFooter>
   );
 };
 
 export {
-  Credenza,
-  CredenzaTrigger,
-  CredenzaClose,
-  CredenzaContent,
-  CredenzaDescription,
-  CredenzaHeader,
-  CredenzaTitle,
-  CredenzaBody,
-  CredenzaFooter,
+  ResponsiveDialog,
+  ResponsiveDialogTrigger,
+  ResponsiveDialogClose,
+  ResponsiveDialogContent,
+  ResponsiveDialogDescription,
+  ResponsiveDialogHeader,
+  ResponsiveDialogTitle,
+  ResponsiveDialogBody,
+  ResponsiveDialogFooter,
 };

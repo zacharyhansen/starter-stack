@@ -9,7 +9,9 @@ Object.defineProperty(exports, "ViewModule", {
     }
 });
 const _common = require("@nestjs/common");
-const _viewrouter = require("./view.router");
+const _viewservice = require("./view.service");
+const _databasemodule = require("../database/database.module");
+const _querymodule = require("../query/query.module");
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,11 +23,14 @@ let ViewModule = class ViewModule {
 ViewModule = _ts_decorate([
     (0, _common.Module)({
         exports: [
-            _viewrouter.ViewRouter
+            _viewservice.ViewService
         ],
-        imports: [],
+        imports: [
+            _databasemodule.DatabaseModule,
+            _querymodule.QueryModule
+        ],
         providers: [
-            _viewrouter.ViewRouter
+            _viewservice.ViewService
         ]
     })
 ], ViewModule);

@@ -15,22 +15,28 @@ import {
   Layers3,
   LayoutDashboard,
   ListTodo,
+  Network,
 } from 'lucide-react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { type MenuGroupItem } from '@repo/ui/components/sidebar/menu';
 import SideBarLayout from '@repo/ui/components/sidebar/side-bar-layout';
 import Navbar from '@repo/ui/components/sidebar/navbar';
 import MediaProvider from '@repo/ui/providers/media-provider';
-import type { ReactNode } from 'react';
 import { ThemeProvider } from '@repo/ui/providers/theme-provider';
 import { Toaster } from '@repo/ui/components/sonner';
-import { Button } from '@repo/ui/components/button';
 import { httpBatchLink, httpLink } from '@trpc/client';
 
 import ThemeButton from './ThemeButton';
 
-import { DEALS, GOALS, HOME, LAYOUTS, TASKS, VIEWS } from '~/constants/routes';
+import {
+  DATA,
+  DEALS,
+  GOALS,
+  HOME,
+  LAYOUTS,
+  TASKS,
+  VIEWS,
+} from '~/constants/routes';
 import { trpc } from '~/lib/trpc';
 import { clientEnvironment } from '~/lib/env/clientEnvironment';
 
@@ -77,10 +83,19 @@ const menuDefinition: MenuGroupItem[] = [
     groupLabel: 'Configure',
     menus: [
       {
+        href: DATA,
+        icon: Network,
+        label: 'Data Tree',
+      },
+      {
         href: VIEWS,
         icon: Layers3,
         label: 'Views',
         submenus: [
+          {
+            href: VIEWS + '/playground',
+            label: 'Query Playground',
+          },
           {
             href: 'todo',
             label: 'Tables',
@@ -141,33 +156,6 @@ export default function MainLayout({
     </ClerkLoaded>
   );
 }
-
-interface ISideBarItem {
-  label: string;
-  icon: ReactNode;
-  href: string;
-}
-
-interface SideBarItemProps {
-  item: ISideBarItem;
-}
-
-const SideBarItem = ({ item }: SideBarItemProps) => {
-  const pathname = usePathname();
-
-  return (
-    <Link key={item.href} href={item.href}>
-      <Button
-        variant={pathname.includes(item.href) ? 'secondary' : 'ghost'}
-        className="w-48 justify-start"
-        size="sm"
-        iconLeft={item.icon}
-      >
-        {item.label}
-      </Button>
-    </Link>
-  );
-};
 
 const UserProfileButton = () => {
   return (

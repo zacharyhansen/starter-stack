@@ -31,7 +31,7 @@ let AuthController = class AuthController {
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     testPublic(query) {
-        return this.database.withSchema(query.schema).selectFrom('user').selectAll().execute();
+        return this.database.withSchema(query.schema).selectFrom('role').selectAll().execute();
     }
     testPrivate(request, response) {
         return response.send('OK');

@@ -149,7 +149,7 @@ module.exports = {
         allowNumberAndString: true,
       },
     ],
-    'sonarjs/pseudo-random': 'off',
+    'sonar/no-nested-functions': 'off',
     'sonarjs/no-array-index-key': 'off',
     'sonarjs/no-nested-conditional': 'off',
     'sonarjs/function-return-type': 'off',

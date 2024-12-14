@@ -1,34 +1,38 @@
-import { TRPCError } from '@trpc/server';
-import { Input, Query, Router } from 'nestjs-trpc';
+import { Input, Mutation, Query, Router } from 'nestjs-trpc';
 import { z } from 'zod';
+import { Inject } from '@nestjs/common';
 
-import { Public } from '~/auth/decorators/public.decorator';
-
-const userSchema = z.string();
-
-type User = z.infer<typeof userSchema>;
+import { ViewService, type ColumnEnabledRecord } from './view.service';
 
 @Router({ alias: 'view' })
 export class ViewRouter {
-  @Query({
-    input: z.object({ userId: z.string() }),
-    output: userSchema,
-  })
-  userById(@Input('userId') userId: string | null): Promise<User> {
-    if (userId == null) {
-      throw new TRPCError({
-        code: 'NOT_FOUND',
-        message: 'Could not find user.',
-      });
-    }
+  constructor(@Inject(ViewService) private viewService: ViewService) {}
 
-    return Promise.resolve(userId);
+  @Query({
+    input: z.object({ name: z.string() }),
+    output: z.any(),
+  })
+  columnByRoleView(@Input('name') name: string) {
+    return this.viewService.columnsByRoleView({ name });
   }
 
-  @Query({
-    output: z.object({}),
+  @Mutation({
+    input: z.object({
+      name: z.string(),
+      columnEnabledRecords: z
+        .object({
+          column_name: z.string(),
+        })
+        .catchall(z.any())
+        .array(),
+    }),
+    output: z.literal('ok'),
   })
-  relationTree(): Promise<object> {
-    return Promise.resolve({});
+  async mutateViewsForRoles(
+    @Input('name') name: string,
+    @Input('columnEnabledRecords') columnEnabledRecords: ColumnEnabledRecord[]
+  ) {
+    await this.viewService.mutateViewsForRoles({ name, columnEnabledRecords });
+    return 'ok';
   }
 }

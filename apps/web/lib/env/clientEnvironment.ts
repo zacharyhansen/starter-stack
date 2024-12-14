@@ -3,8 +3,6 @@
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
-console.log({ env: process.env });
-
 export const clientEnvironment = createEnv({
   client: {
     NEXT_PUBLIC_POSTGREST_URL: z.string().url(),

@@ -1,0 +1,254 @@
+model role {
+  slug             String             @id
+  label            String             @unique
+  environment_user environment_user[]
+
+  @@schema("foundation")
+}
+
+/// This is the model to join views on to filter global models to create access views (i.e. joining users here gives thes users that have access to an env/schema)
+model environment_user {
+  id         String   @id @default(uuid()) @db.Uuid
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  role_slug  String
+  user_id    String   @db.Uuid
+  user       user     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  role       role     @relation(fields: [role_slug], references: [slug], onDelete: Restrict)
+
+  // For now a user can only have a single role in an org (TBD if we allow users to switch between roles)
+  @@unique([user_id])
+  @@schema("foundation")
+}
+
+model deal_status__foundation {
+  id          String             @id @default(uuid()) @db.Uuid
+  external_id String?            @unique
+  created_at  DateTime           @default(now())
+  updated_at  DateTime           @updatedAt
+  order       Int
+  label       String             @unique
+  deal        deal__foundation[]
+
+  @@map("deal_status")
+  @@schema("foundation")
+}
+
+model opportunity__foundation {
+  id                   String                @id @default(uuid()) @db.Uuid
+  external_id          String?               @unique
+  created_at           DateTime              @default(now())
+  updated_at           DateTime              @updatedAt
+  label                String?
+  active_deal_id       String?               @unique @db.Uuid
+  assignee_id          String?               @db.Uuid
+  creator_id           String                @db.Uuid
+  borrower_user_id     String?               @db.Uuid
+  borrower_business_id String?               @db.Uuid
+  agent_id             String?               @db.Uuid
+  deal                 deal__foundation[]    @relation("deals")
+  active_deal          deal__foundation?     @relation("active_deal", fields: [active_deal_id], references: [id], onDelete: Restrict)
+  agent                user?                 @relation("agent_opportunity", fields: [agent_id], references: [id], onDelete: SetNull)
+  assignee             user?                 @relation("assignee_opportunity", fields: [assignee_id], references: [id], onDelete: SetNull)
+  borrower_business    business__foundation? @relation(fields: [borrower_business_id], references: [id], onDelete: Restrict)
+  borrower_user        user?                 @relation("borrower_opportunity", fields: [borrower_user_id], references: [id], onDelete: Restrict)
+  created_by           user                  @relation("creator_opportunity", fields: [creator_id], references: [id], onDelete: Restrict)
+
+  @@map("opportunity")
+  @@schema("foundation")
+}
+
+model deal__foundation {
+  id                    String                   @id @default(uuid()) @db.Uuid
+  external_id           String?                  @unique
+  created_at            DateTime                 @default(now())
+  updated_at            DateTime                 @updatedAt
+  opportunity_id        String                   @db.Uuid
+  source                String?
+  assignee_id           String?                  @db.Uuid
+  creator_id            String                   @db.Uuid
+  winnability           Int?
+  appetite              Int?
+  ssbs_score            Int?
+  loan_amount           Decimal?                 @db.Decimal(14, 3)
+  interest_rate         Decimal?                 @db.Decimal(7, 6)
+  loan_processing_fee   Decimal?                 @db.Decimal(10, 3)
+  status_id             String                   @db.Uuid
+  label                 String
+  userId                String?                  @db.Uuid
+  assignee              user?                    @relation("assignee_deal", fields: [assignee_id], references: [id], onDelete: SetNull)
+  created_by            user                     @relation("creator_deal", fields: [creator_id], references: [id], onDelete: Restrict)
+  opportunity           opportunity__foundation  @relation("deals", fields: [opportunity_id], references: [id], onDelete: Cascade)
+  status                deal_status__foundation  @relation(fields: [status_id], references: [id], onDelete: Restrict)
+  deal_user__foundation deal_user__foundation[]
+  opportunity_active    opportunity__foundation? @relation("active_deal")
+  property              property__foundation[]
+  task                  task__foundation[]
+
+  @@map("deal")
+  @@schema("foundation")
+}
+
+model task_status__foundation {
+  id          Int                @id @default(autoincrement())
+  external_id String?            @unique
+  created_at  DateTime           @default(now())
+  updated_at  DateTime           @updatedAt
+  label       String             @unique
+  task        task__foundation[]
+
+  @@map("task_status")
+  @@schema("foundation")
+}
+
+model task_priority__foundation {
+  id          Int                @id @default(autoincrement())
+  external_id String?            @unique
+  created_at  DateTime           @default(now())
+  updated_at  DateTime           @updatedAt
+  label       String             @unique
+  tasks       task__foundation[]
+
+  @@map("task_priority")
+  @@schema("foundation")
+}
+
+model task__foundation {
+  id          String                    @id @default(uuid()) @db.Uuid
+  external_id String?                   @unique
+  created_at  DateTime                  @default(now())
+  updated_at  DateTime                  @updatedAt
+  title       String
+  description String?
+  status_id   Int
+  assignee_id String?                   @db.Uuid
+  creator_id  String                    @db.Uuid
+  deal_id     String                    @db.Uuid
+  priority_id Int
+  assignee    user?                     @relation("assignee_task", fields: [assignee_id], references: [id], onDelete: SetNull)
+  creator     user                      @relation("creator_task", fields: [creator_id], references: [id], onDelete: Restrict)
+  deal        deal__foundation          @relation(fields: [deal_id], references: [id], onDelete: Cascade)
+  priority    task_priority__foundation @relation(fields: [priority_id], references: [id], onDelete: Restrict)
+  status      task_status__foundation   @relation(fields: [status_id], references: [id], onDelete: Restrict)
+
+  @@map("task")
+  @@schema("foundation")
+}
+
+model property__foundation {
+  id             String           @id @default(uuid()) @db.Uuid
+  external_id    String?          @unique
+  created_at     DateTime         @default(now())
+  updated_at     DateTime         @updatedAt
+  address        String?
+  address_line_2 String?
+  city           String?          @db.VarChar(255)
+  zip_code       String?          @db.VarChar(255)
+  state          state_usa?
+  county         String?
+  description    String?
+  tags           String[]
+  year_built     Int?
+  area_sq_km     Float?
+  type           property_type?
+  amenities      String[]
+  submitted_at   DateTime         @default(now())
+  last_census_at DateTime?
+  building_type  building_type?
+  deal_id        String           @db.Uuid
+  deal           deal__foundation @relation(fields: [deal_id], references: [id], onDelete: Cascade)
+
+  @@map("property")
+  @@schema("foundation")
+}
+
+model deal_user__foundation {
+  created_at DateTime         @default(now())
+  updated_at DateTime         @updatedAt
+  user_id    String           @db.Uuid
+  deal_id    String           @db.Uuid
+  id         String           @unique @default(uuid()) @db.Uuid
+  deal       deal__foundation @relation(fields: [deal_id], references: [id], onDelete: Cascade)
+  user       user             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@id([deal_id, user_id])
+  @@map("deal_user")
+  @@schema("foundation")
+}
+
+model business__foundation {
+  id                  String                    @id @default(uuid()) @db.Uuid
+  external_id         String?                   @unique
+  created_at          DateTime                  @default(now())
+  updated_at          DateTime                  @updatedAt
+  address             String?
+  address_line_2      String?
+  city                String?                   @db.VarChar(255)
+  zip_code            String?                   @db.VarChar(255)
+  state               state_usa?
+  county              String?
+  email               String?                   @db.VarChar(255)
+  name_display        String?
+  name_legal          String?
+  duns                String?                   @unique @db.VarChar(9)
+  dba                 String?                   @unique @db.VarChar(255)
+  tin                 String?                   @unique @db.VarChar(9)
+  phone               String?
+  business_type       String?
+  industry            String?
+  date_business_began DateTime?                 @db.Date
+  revenue_average     Float?
+  debt                Float?
+  business_user       business_user[]
+  opportunity         opportunity__foundation[]
+
+  @@map("business")
+  @@schema("foundation")
+}
+
+model business_user {
+  id                      String               @id @default(uuid()) @db.Uuid
+  created_at              DateTime             @default(now())
+  updated_at              DateTime             @updatedAt
+  business_id             String               @db.Uuid
+  user_id                 String               @db.Uuid
+  job_title               String?
+  owernship               Float?
+  income_average_monthly  Float?
+  expense_average_monthly Float?
+  business                business__foundation @relation(fields: [business_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user                    user                 @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([business_id, user_id])
+  @@schema("foundation")
+}
+
+model q_view {
+  /// Name of the view in the DB
+  name       String      @id
+  /// Name of the view from data-tree.ts that this view is created from
+  root_view  String
+  created_at DateTime    @default(now())
+  updated_at DateTime    @updatedAt
+  q_columns  q_columns[]
+
+  @@schema("foundation")
+}
+
+model q_columns {
+  /// Name of the column in the view
+  name              String   @id
+  /// q_view the column is on
+  q_view_name       String
+  /// name of the root table in the DB this view column references
+  table_name        String?
+  /// name of the root column in the DB this view column references
+  table_column_name String?
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+  q_view            q_view   @relation(fields: [q_viewName], references: [name], onDelete: Cascade)
+  q_viewName        String
+
+  @@unique([name, q_view_name])
+  @@schema("foundation")
+}

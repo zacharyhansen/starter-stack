@@ -8,9 +8,10 @@ Object.defineProperty(exports, "ViewRouter", {
         return ViewRouter;
     }
 });
-const _server = require("@trpc/server");
 const _nestjstrpc = require("nestjs-trpc");
 const _zod = require("zod");
+const _common = require("@nestjs/common");
+const _viewservice = require("./view.service");
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,47 +26,65 @@ function _ts_param(paramIndex, decorator) {
         decorator(target, key, paramIndex);
     };
 }
-const userSchema = _zod.z.string();
 let ViewRouter = class ViewRouter {
-    userById(userId) {
-        if (userId == null) {
-            throw new _server.TRPCError({
-                code: 'NOT_FOUND',
-                message: 'Could not find user.'
-            });
-        }
-        return Promise.resolve(userId);
+    constructor(viewService){
+        this.viewService = viewService;
     }
-    relationTree() {
-        return Promise.resolve({});
+    columnByRoleView(name) {
+        return this.viewService.columnsByRoleView({
+            name
+        });
+    }
+    async mutateViewsForRoles(name, columnEnabledRecords) {
+        await this.viewService.mutateViewsForRoles({
+            name,
+            columnEnabledRecords
+        });
+        return 'ok';
     }
 };
 _ts_decorate([
     (0, _nestjstrpc.Query)({
         input: _zod.z.object({
-            userId: _zod.z.string()
+            name: _zod.z.string()
         }),
-        output: userSchema
+        output: _zod.z.any()
     }),
-    _ts_param(0, (0, _nestjstrpc.Input)('userId')),
+    _ts_param(0, (0, _nestjstrpc.Input)('name')),
     _ts_metadata("design:type", Function),
     _ts_metadata("design:paramtypes", [
-        Object
+        String
     ]),
-    _ts_metadata("design:returntype", typeof Promise === "undefined" ? Object : Promise)
-], ViewRouter.prototype, "userById", null);
+    _ts_metadata("design:returntype", void 0)
+], ViewRouter.prototype, "columnByRoleView", null);
 _ts_decorate([
-    (0, _nestjstrpc.Query)({
-        output: _zod.z.object({})
+    (0, _nestjstrpc.Mutation)({
+        input: _zod.z.object({
+            name: _zod.z.string(),
+            columnEnabledRecords: _zod.z.object({
+                column_name: _zod.z.string()
+            }).catchall(_zod.z.any()).array()
+        }),
+        output: _zod.z.literal('ok')
     }),
+    _ts_param(0, (0, _nestjstrpc.Input)('name')),
+    _ts_param(1, (0, _nestjstrpc.Input)('columnEnabledRecords')),
     _ts_metadata("design:type", Function),
-    _ts_metadata("design:paramtypes", []),
-    _ts_metadata("design:returntype", typeof Promise === "undefined" ? Object : Promise)
-], ViewRouter.prototype, "relationTree", null);
+    _ts_metadata("design:paramtypes", [
+        String,
+        Array
+    ]),
+    _ts_metadata("design:returntype", Promise)
+], ViewRouter.prototype, "mutateViewsForRoles", null);
 ViewRouter = _ts_decorate([
     (0, _nestjstrpc.Router)({
         alias: 'view'
-    })
+    }),
+    _ts_param(0, (0, _common.Inject)(_viewservice.ViewService)),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        typeof _viewservice.ViewService === "undefined" ? Object : _viewservice.ViewService
+    ])
 ], ViewRouter);
 
 //# sourceMappingURL=view.router.js.map
