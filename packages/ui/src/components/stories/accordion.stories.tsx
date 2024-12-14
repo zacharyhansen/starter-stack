@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within, expect } from '@storybook/test';
 
@@ -37,6 +38,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 } satisfies Meta<{}>;
 
 export default meta;
@@ -73,3 +75,4 @@ export const AccordionWithOneItem: Story = {
     });
   },
 };
+/* eslint-enable @typescript-eslint/no-unused-vars */

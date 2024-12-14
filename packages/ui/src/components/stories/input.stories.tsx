@@ -67,7 +67,7 @@ export const InputDisabled: Story = {
 export const InputWithLabel: Story = {
   args: {},
   render: function (args) {
-    return <Input type="email" placeholder="Email" {...args} label="Email" />;
+    return <Input type="email" {...args} label="Email" />;
   },
 };
 
