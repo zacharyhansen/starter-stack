@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ["@repo/eslint-config/library.cjs"],
+  extends: ["@repo/eslint-config/library.cjs", "plugin:storybook/recommended"],
 }

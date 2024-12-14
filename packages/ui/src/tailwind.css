@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'geist/geist.css';
 
 @layer base {
   :root {
@@ -85,4 +86,9 @@
 .ag-header-row {
   font-weight: 800 !important;
   color: rgb(75 85 99) !important;
+}
+
+/* Apply Geist as the default font */
+body {
+  font-family: 'Geist', sans-serif;
 }
