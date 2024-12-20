@@ -1,4 +1,5 @@
 'use client';
+// see https://credenza.rdev.pro/
 
 import type * as React from 'react';
 
@@ -30,12 +31,12 @@ interface BaseProps {
   children: React.ReactNode;
 }
 
-interface RootResponsiveDialogProps extends BaseProps {
+export interface RootResponsiveDialogProps extends BaseProps {
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
 }
 
-interface ResponsiveDialogProps extends BaseProps {
+export interface ResponsiveDialogProps extends BaseProps {
   className?: string;
   asChild?: true;
 }
@@ -92,7 +93,7 @@ const ResponsiveDialogContent = ({
 
   return (
     <ResponsiveDialogContent
-      className={cn('max-h-screen', className)}
+      className={cn('max-h-screen overflow-auto', className)}
       {...props}
     >
       {children}
@@ -153,7 +154,7 @@ const ResponsiveDialogBody = ({
   ...props
 }: ResponsiveDialogProps) => {
   return (
-    <div className={cn('overflow-auto px-4 md:px-0', className)} {...props}>
+    <div className={cn('overflow-auto px-4 md:px-1', className)} {...props}>
       {children}
     </div>
   );

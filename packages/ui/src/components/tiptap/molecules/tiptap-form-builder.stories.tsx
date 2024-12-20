@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
+import { Toaster } from 'sonner';
 
 import { formCommands } from '../extensions/slash-command-lists/form.commands';
 
@@ -14,7 +15,7 @@ const meta = {
     editable: true,
     editorClassName: 'my-12 mx-24',
     onChange: content => {
-      // console.log({ content });
+      console.log({ content });
     },
   },
   tags: ['autodocs'],
@@ -24,6 +25,7 @@ const meta = {
   },
   render: args => (
     <TooltipProvider delayDuration={100}>
+      <Toaster />
       <TiptapBase {...args} />
     </TooltipProvider>
   ),
@@ -45,9 +47,7 @@ export const InputBlocks: Story = {
     editorContentClassName: 'minimal-tiptap-editor-slash-command',
     placeholder: "Press '/' for commands.",
     value: `
-    <p>This is an example of how custom input nodes appear.</p>
-    <input-block label="Your Name" placeholder="Enter your name" />
-    <p>text</p>
+   <form-text-node name="field_6ZBXjmzVfZ" label="Text Input Label" defaultvalue="" placeholder="Placeholder..." required="true" description=""></form-text-node><p class="text-node">Paragraph element</p>
   `,
   },
 };

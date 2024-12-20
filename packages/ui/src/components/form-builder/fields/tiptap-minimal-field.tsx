@@ -1,4 +1,7 @@
-import { TiptapBasic, type TiptapBasicProps } from '../../tiptap';
+import {
+  TiptapBase,
+  type TiptapBaseProps,
+} from '../../tiptap/molecules/tiptap-base';
 import type { BaseFieldProps } from '../form-builder.types';
 
 import {
@@ -15,7 +18,7 @@ export default function TiptapBasicField({
   label,
   description,
   ...props
-}: Readonly<BaseFieldProps & TiptapBasicProps>) {
+}: Readonly<BaseFieldProps & TiptapBaseProps>) {
   return (
     <FormField
       name={name}
@@ -24,7 +27,7 @@ export default function TiptapBasicField({
           <FormItem>
             <FormLabel>{label}</FormLabel>
             <FormControl>
-              <TiptapBasic {...props} {...field} />
+              <TiptapBase {...props} {...field} />
             </FormControl>
             <FormDescription>{description}</FormDescription>
             <FormMessage />

@@ -32,9 +32,9 @@ export const Link = TiptapLink.extend({
   },
 
   addOptions() {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
-      ...this.parent(),
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      ...this.parent?.(),
       openOnClick: false,
       HTMLAttributes: {
         class: 'link',

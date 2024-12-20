@@ -24,7 +24,9 @@ import {
 } from '../extensions';
 import { fileToBase64, getOutput, randomId } from '../utils';
 import GlobalDragHandle from '../extensions/drag-handler';
-import { InputBlock } from '../nodes/input.node';
+import { FormTextNode } from '../nodes/form/form-text.node';
+import { FormNumberNode } from '../nodes/form/form-number.node';
+import { FormCheckboxNode } from '../nodes/form/form-checkbox.node';
 
 import { useThrottle } from './use-throttle';
 
@@ -51,7 +53,10 @@ const createExtensions = ({
   slashCommands?: SlashCommands;
 }) => {
   const extensions = [
-    InputBlock,
+    // Form Nodes
+    FormTextNode,
+    FormNumberNode,
+    FormCheckboxNode,
     Link,
     Underline,
     Color,

@@ -17,7 +17,7 @@ import { memo, useRef } from 'react';
 import { Handle, Position } from 'reactflow';
 import type { AgGridReact } from 'ag-grid-react';
 import type { IRowNode } from 'ag-grid-community';
-import { toast } from '@repo/ui/components/sonner';
+import { toast } from '@repo/ui/components/toast-sonner';
 import { Alert, AlertDescription, AlertTitle } from '@repo/ui/components/alert';
 
 import ViewDetail from './view-detail';

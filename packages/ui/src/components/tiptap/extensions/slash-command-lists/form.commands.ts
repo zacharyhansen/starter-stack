@@ -1,4 +1,5 @@
 import { createSuggestionsItems } from '@harshtalks/slash-tiptap';
+import type { Editor, Range } from '@tiptap/core';
 import {
   CaseSensitive,
   Binary,
@@ -15,6 +16,23 @@ import {
   PencilRuler,
 } from 'lucide-react';
 
+const selectLabel = ({ editor, range }: { editor: Editor; range: Range }) => {
+  // After inserting the content, we set the selection (cursor) inside the editable part of the node
+  const node = editor.view.nodeDOM(range.from - 1);
+  // @ts-expect-error this works so gonna come back to it
+  const editableDiv = node?.querySelector('div[contenteditable="true"]');
+
+  if (editableDiv) {
+    editableDiv.focus();
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.selectNodeContents(editableDiv);
+    range.collapse(false); // Move the cursor to the end of the content
+    selection?.removeAllRanges();
+    selection?.addRange(range);
+  }
+};
+
 export const formCommands = createSuggestionsItems([
   {
     title: 'Text',
@@ -26,30 +44,16 @@ export const formCommands = createSuggestionsItems([
         .deleteRange(range)
         .insertContentAt(range.from, [
           {
-            type: 'textInputNode',
+            type: 'formTextNode',
           },
         ])
         .run();
-
-      // After inserting the content, we set the selection (cursor) inside the editable part of the node
-      const node = editor.view.nodeDOM(range.from - 1);
-      // @ts-expect-error this works so gonna come back to it
-      const editableDiv = node?.querySelector('div[contenteditable="true"]');
-
-      if (editableDiv) {
-        editableDiv.focus();
-        const range = document.createRange();
-        const selection = window.getSelection();
-        range.selectNodeContents(editableDiv);
-        range.collapse(false); // Move the cursor to the end of the content
-        selection?.removeAllRanges();
-        selection?.addRange(range);
-      }
+      selectLabel({ editor, range });
     },
   },
   {
     title: 'Number',
-    searchTerms: ['number', 'input'],
+    searchTerms: ['number', 'input', 'integer', 'percent', 'decimal'],
     icon: Binary,
     command: ({ editor, range }) => {
       editor
@@ -57,10 +61,11 @@ export const formCommands = createSuggestionsItems([
         .deleteRange(range)
         .insertContentAt(range.from, [
           {
-            type: 'paragraph',
+            type: 'formNumberNode',
           },
         ])
         .run();
+      selectLabel({ editor, range });
     },
   },
   {
@@ -73,10 +78,11 @@ export const formCommands = createSuggestionsItems([
         .deleteRange(range)
         .insertContentAt(range.from, [
           {
-            type: 'paragraph',
+            type: 'formCheckboxNode',
           },
         ])
         .run();
+      selectLabel({ editor, range });
     },
   },
   {

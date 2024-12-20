@@ -48,8 +48,7 @@ export const getAllContent = (editor: Editor) => {
 };
 
 export function generateRandomFieldName(prefix = 'name', length = 10): string {
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let randomString = '';
 
   for (let index = 0; index < length; index++) {

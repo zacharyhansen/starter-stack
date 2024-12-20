@@ -116,6 +116,7 @@ export const TiptapBase = React.forwardRef<HTMLDivElement, TiptapBaseProps>(
                         key={title}
                         className="hover:bg-muted aria-selected:bg-secondary flex w-full min-w-72 cursor-pointer items-center space-x-2 rounded-md p-1 text-left text-sm"
                       >
+                        {/* @ts-ignore its an icon */}
                         <Icon size={18} className="ml-2" />
                         <span>{title}</span>
                       </SlashCmd.Item>
