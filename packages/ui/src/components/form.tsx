@@ -42,6 +42,7 @@ const useFormField = () => {
 
   const fieldState = getFieldState(fieldContext.name, formState);
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!fieldContext) {
     throw new Error('useFormField should be used within <FormField>');
   }
@@ -128,7 +129,7 @@ const FormDescription = React.forwardRef<
     <p
       ref={ref}
       id={formDescriptionId}
-      className={cn('text-muted-foreground text-sm', className)}
+      className={cn('text-muted-foreground text-xs', className)}
       {...props}
     />
   );
@@ -140,7 +141,12 @@ const FormMessage = React.forwardRef<
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
   const { error, formMessageId } = useFormField();
-  const body = error ? String(error.message) : children;
+
+  const errorObject = isDatePickerError(error)
+    ? (error.to ?? error.from)
+    : error;
+
+  const body = errorObject ? String(errorObject.message) : children;
 
   if (!body) {
     return null;
@@ -169,3 +175,21 @@ export {
   FormMessage,
   FormField,
 };
+
+interface DatePickerError {
+  to?: {
+    message: string;
+    type: string;
+  };
+  from?: {
+    message: string;
+    type: string;
+  };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isDatePickerError(error: any): error is DatePickerError {
+  if (typeof error !== 'object' || error === null) return false;
+
+  return !!error.to;
+}
