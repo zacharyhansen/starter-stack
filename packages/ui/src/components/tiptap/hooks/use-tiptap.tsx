@@ -27,6 +27,7 @@ import GlobalDragHandle from '../extensions/drag-handler';
 import { FormTextNode } from '../nodes/form/form-text.node';
 import { FormNumberNode } from '../nodes/form/form-number.node';
 import { FormCheckboxNode } from '../nodes/form/form-checkbox.node';
+import { FormComboboxNode } from '../nodes/form/form-combobox.node';
 
 import { useThrottle } from './use-throttle';
 
@@ -57,6 +58,8 @@ const createExtensions = ({
     FormTextNode,
     FormNumberNode,
     FormCheckboxNode,
+    FormComboboxNode,
+
     Link,
     Underline,
     Color,

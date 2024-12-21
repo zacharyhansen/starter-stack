@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { z } from 'zod';
 
 import { cn } from '../utils';
 
@@ -22,13 +23,18 @@ import {
   PopoverTrigger,
 } from '@repo/ui/components/popover';
 
-export interface Option {
+export const ComboboxOptionSchema = z.object({
+  label: z.any(), // React.ReactNode (can be anything, e.g., string, number, JSX)
+  value: z.string(),
+});
+
+export interface ComboboxOption {
   label: React.ReactNode;
   value: string;
 }
 
 export interface ComboboxProps extends BaseInputProps {
-  options: Option[];
+  options: ComboboxOption[];
   value?: string;
   onChange: (value?: string) => void;
 }

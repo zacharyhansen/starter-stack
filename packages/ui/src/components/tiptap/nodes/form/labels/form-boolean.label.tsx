@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { FormProvider } from 'react-hook-form';
 import { useState } from 'react';
 
-import type { BaseBooleanNodeAttributes } from '../types';
+import type { BooleanNodeAttributes } from '../types';
 
 import {
   Footer,
@@ -46,7 +46,7 @@ export const FormBooleanLabel = (props: NodeViewProps) => {
   const { node, editor } = props;
 
   const { label, required, name, defaultValue, description, nameLocked } =
-    node.attrs as BaseBooleanNodeAttributes;
+    node.attrs as BooleanNodeAttributes;
   const { isEditable } = editor;
 
   const [open, setOpen] = useState(false);

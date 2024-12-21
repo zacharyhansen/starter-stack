@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { FormProvider } from 'react-hook-form';
 import { useState } from 'react';
 
-import type { BaseNumberNodeAttributes } from '../types';
+import type { NumberNodeAttributes } from '../types';
 
 import {
   Footer,
@@ -52,7 +52,7 @@ export const FormNumberLabel = (props: NodeViewProps) => {
     description,
     placeholder,
     nameLocked,
-  } = node.attrs as BaseNumberNodeAttributes;
+  } = node.attrs as NumberNodeAttributes;
   const { isEditable } = editor;
 
   const [open, setOpen] = useState(false);

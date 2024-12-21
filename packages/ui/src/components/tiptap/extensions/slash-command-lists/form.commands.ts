@@ -1,20 +1,11 @@
 import { createSuggestionsItems } from '@harshtalks/slash-tiptap';
 import type { Editor, Range } from '@tiptap/core';
+
 import {
-  CaseSensitive,
-  Binary,
-  SquareMousePointer,
-  Layers,
-  ChevronDown,
-  CalendarCheck,
-  CalendarRange,
-  KeyRound,
-  Phone,
-  ChevronsLeftRightEllipsis,
-  ToggleLeft,
-  ScanText,
-  PencilRuler,
-} from 'lucide-react';
+  formCommandIcon,
+  formCommandLabel,
+  FormNode,
+} from '../../nodes/form/types';
 
 const selectLabel = ({ editor, range }: { editor: Editor; range: Range }) => {
   // After inserting the content, we set the selection (cursor) inside the editable part of the node
@@ -33,217 +24,131 @@ const selectLabel = ({ editor, range }: { editor: Editor; range: Range }) => {
   }
 };
 
+const handleNodeInsert = ({
+  editor,
+  range,
+  formNode,
+}: {
+  editor: Editor;
+  range: Range;
+  formNode: FormNode;
+}) => {
+  editor
+    .chain()
+    .deleteRange(range)
+    .insertContentAt(range.from, [
+      {
+        type: formNode,
+      },
+    ])
+    .run();
+  selectLabel({ editor, range });
+};
+
 export const formCommands = createSuggestionsItems([
   {
-    title: 'Text',
+    title: formCommandLabel[FormNode.Text],
     searchTerms: ['text', 'input', 'string'],
-    icon: CaseSensitive,
+    icon: formCommandIcon[FormNode.Text],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'formTextNode',
-          },
-        ])
-        .run();
-      selectLabel({ editor, range });
+      handleNodeInsert({ editor, range, formNode: FormNode.Text });
     },
   },
   {
-    title: 'Number',
-    searchTerms: ['number', 'input', 'integer', 'percent', 'decimal'],
-    icon: Binary,
+    title: formCommandLabel[FormNode.Number],
+    searchTerms: ['number', 'input', 'integer', 'percent', 'decimal', 'dollar'],
+    icon: formCommandIcon[FormNode.Number],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'formNumberNode',
-          },
-        ])
-        .run();
-      selectLabel({ editor, range });
+      handleNodeInsert({ editor, range, formNode: FormNode.Number });
     },
   },
   {
-    title: 'Checkbox',
+    title: formCommandLabel[FormNode.Checkbox],
     searchTerms: [],
-    icon: SquareMousePointer,
+    icon: formCommandIcon[FormNode.Checkbox],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'formCheckboxNode',
-          },
-        ])
-        .run();
-      selectLabel({ editor, range });
+      handleNodeInsert({ editor, range, formNode: FormNode.Checkbox });
     },
   },
   {
-    title: 'Multi Select',
-    searchTerms: [],
-    icon: Layers,
+    title: formCommandLabel[FormNode.ComboboxMulti],
+    searchTerms: ['select', 'combo', 'option', 'multi'],
+    icon: formCommandIcon[FormNode.ComboboxMulti],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.ComboboxMulti });
     },
   },
   {
-    title: 'Select',
-    searchTerms: [],
-    icon: ChevronDown,
+    title: formCommandLabel[FormNode.Combobox],
+    searchTerms: ['select', 'combo', 'option', 'single'],
+    icon: formCommandIcon[FormNode.Combobox],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Combobox });
     },
   },
   {
-    title: 'Calendar',
+    title: formCommandLabel[FormNode.DatePicker],
     searchTerms: [],
-    icon: CalendarCheck,
+    icon: formCommandIcon[FormNode.DatePicker],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.DatePicker });
     },
   },
   {
-    title: 'Calendar Range',
+    title: formCommandLabel[FormNode.DateRangePicker],
     searchTerms: [],
-    icon: CalendarRange,
+    icon: formCommandIcon[FormNode.DateRangePicker],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.DateRangePicker });
     },
   },
   {
-    title: 'Password',
+    title: formCommandLabel[FormNode.Password],
     searchTerms: [],
-    icon: KeyRound,
+    icon: formCommandIcon[FormNode.Password],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Password });
     },
   },
   {
-    title: 'Phone',
+    title: formCommandLabel[FormNode.Phone],
     searchTerms: [],
-    icon: Phone,
+    icon: formCommandIcon[FormNode.Phone],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Phone });
     },
   },
   {
-    title: 'Slider',
+    title: formCommandLabel[FormNode.Slider],
     searchTerms: [],
-    icon: ChevronsLeftRightEllipsis,
+    icon: formCommandIcon[FormNode.Slider],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Slider });
     },
   },
   {
-    title: 'Switch',
+    title: formCommandLabel[FormNode.Switch],
     searchTerms: [],
-    icon: ToggleLeft,
+    icon: formCommandIcon[FormNode.Switch],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Switch });
     },
   },
   {
-    title: 'Text Area',
+    title: formCommandLabel[FormNode.Textarea],
     searchTerms: [],
-    icon: ScanText,
+    icon: formCommandIcon[FormNode.Textarea],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Textarea });
     },
   },
 
   {
-    title: 'Rich Editor',
+    title: formCommandLabel[FormNode.Tiptap],
     searchTerms: [],
-    icon: PencilRuler,
+    icon: formCommandIcon[FormNode.Tiptap],
     command: ({ editor, range }) => {
-      editor
-        .chain()
-        .deleteRange(range)
-        .insertContentAt(range.from, [
-          {
-            type: 'paragraph',
-          },
-        ])
-        .run();
+      handleNodeInsert({ editor, range, formNode: FormNode.Tiptap });
     },
   },
 ]);

@@ -2,16 +2,16 @@ import { Node, mergeAttributes } from '@tiptap/core';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 
 import { generateRandomFieldName } from '../../utils';
-import { FormNode, type NumberNodeAttributes } from '../form/types';
 
+import { FormNode, type ComboboxNodeAttributes } from './types';
 import { InputWrapper } from './input.wrapper';
 import { useFormKeyDown } from './hooks/use-form-key-down';
 
 import { Input } from '@repo/ui/components/input';
-import InputField from '@repo/ui/components/form-builder/fields/input.field';
+import ComboboxField from '@repo/ui/components/form-builder/fields/combobox.field';
 
-export const FormNumberNode = Node.create<NumberNodeAttributes>({
-  name: FormNode.Number, // Unique name for your node
+export const FormComboboxNode = Node.create<ComboboxNodeAttributes>({
+  name: FormNode.Combobox, // Unique name for your node
   group: 'block', // Allow it to act like a block element
   atom: true, // Treat as a single unit (atomic)
 
@@ -24,38 +24,36 @@ export const FormNumberNode = Node.create<NumberNodeAttributes>({
       required: { default: true },
       description: { default: '' },
       nameLocked: { default: false },
+      options: { default: [] },
     };
   },
 
   parseHTML() {
     return [
       {
-        tag: 'form-number-node',
+        tag: 'form-combobox-node',
       },
     ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['form-number-node', mergeAttributes(HTMLAttributes)];
+    return ['form-combobox-node', mergeAttributes(HTMLAttributes)];
   },
 
   addNodeView() {
     return ReactNodeViewRenderer(props => {
       const { node, updateAttributes } = props;
-      const { placeholder } = node.attrs as NumberNodeAttributes;
+      const { placeholder } = node.attrs as ComboboxNodeAttributes;
       const { handleKeyDown } = useFormKeyDown(props);
 
       if (!props.editor.isEditable) {
         return (
-          <InputField
-            type="number"
-            {...(props.node.attrs as NumberNodeAttributes)}
-          />
+          <ComboboxField {...(props.node.attrs as ComboboxNodeAttributes)} />
         );
       }
 
       return (
-        <InputWrapper {...props} type={FormNode.Number}>
+        <InputWrapper {...props} type={FormNode.Combobox}>
           <Input
             placeholder={'Type placeholder text'}
             onChange={event => {

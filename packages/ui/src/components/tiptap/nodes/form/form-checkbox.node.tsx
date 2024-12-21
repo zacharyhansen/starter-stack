@@ -3,14 +3,14 @@ import { ReactNodeViewRenderer, NodeViewWrapper } from '@tiptap/react';
 
 import { generateRandomFieldName } from '../../utils';
 
-import type { BaseBooleanNodeAttributes } from './types';
+import { FormNode, type BooleanNodeAttributes } from './types';
 import { FormBooleanLabel } from './labels/form-boolean.label';
 
 import { CheckboxField } from '@repo/ui/components/checkbox';
 
 // Define the FormTextNode extension
-export const FormCheckboxNode = Node.create<BaseBooleanNodeAttributes>({
-  name: 'formCheckboxNode', // Unique name for your node
+export const FormCheckboxNode = Node.create<BooleanNodeAttributes>({
+  name: FormNode.Checkbox, // Unique name for your node
   group: 'block', // Allow it to act like a block element
   atom: true, // Treat as a single unit (atomic)
 
@@ -40,8 +40,7 @@ export const FormCheckboxNode = Node.create<BaseBooleanNodeAttributes>({
   addNodeView() {
     return ReactNodeViewRenderer(props => {
       const { node, updateAttributes } = props;
-      const { description, defaultValue } =
-        node.attrs as BaseBooleanNodeAttributes;
+      const { description, defaultValue } = node.attrs as BooleanNodeAttributes;
 
       if (!props.editor.isEditable) {
         return <CheckboxField {...props.node.attrs} />;

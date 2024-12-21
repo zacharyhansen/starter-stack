@@ -3,16 +3,15 @@ import { ReactNodeViewRenderer } from '@tiptap/react';
 
 import { generateRandomFieldName } from '../../utils';
 
-import type { BaseTextNodeAttributes } from './types';
+import { FormNode, type TextNodeAttributes } from './types';
 import { InputWrapper } from './input.wrapper';
 import { useFormKeyDown } from './hooks/use-form-key-down';
 
 import { Input } from '@repo/ui/components/input';
 import InputField from '@repo/ui/components/form-builder/fields/input.field';
 
-// Define the FormTextNode extension
-export const FormTextNode = Node.create<BaseTextNodeAttributes>({
-  name: 'formTextNode', // Unique name for your node
+export const FormTextNode = Node.create<TextNodeAttributes>({
+  name: FormNode.Text, // Unique name for your node
   group: 'block', // Allow it to act like a block element
   atom: true, // Treat as a single unit (atomic)
 
@@ -43,15 +42,15 @@ export const FormTextNode = Node.create<BaseTextNodeAttributes>({
   addNodeView() {
     return ReactNodeViewRenderer(props => {
       const { node, updateAttributes } = props;
-      const { placeholder } = node.attrs as BaseTextNodeAttributes;
+      const { placeholder } = node.attrs as TextNodeAttributes;
       const { handleKeyDown } = useFormKeyDown(props);
 
       if (!props.editor.isEditable) {
-        return <InputField {...(props.node.attrs as BaseTextNodeAttributes)} />;
+        return <InputField {...(props.node.attrs as TextNodeAttributes)} />;
       }
 
       return (
-        <InputWrapper {...props} type="text">
+        <InputWrapper {...props} type={FormNode.Text}>
           <Input
             placeholder={'Type placeholder text'}
             onChange={event => {

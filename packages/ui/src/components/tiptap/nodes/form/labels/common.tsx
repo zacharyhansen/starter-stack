@@ -1,4 +1,4 @@
-import { Asterisk, Info, Pencil, Trash2 } from 'lucide-react';
+import { Asterisk, Info, Pencil, Rows3, Trash2 } from 'lucide-react';
 import type { NodeViewProps } from '@tiptap/core';
 import { Fragment } from 'react/jsx-runtime';
 import { snakeCase } from 'change-case';
@@ -95,6 +95,14 @@ export function InfoAndDeleteIcons({
         </TooltipContent>
       </Tooltip>
     </>
+  );
+}
+
+export function OptionsIcon() {
+  return (
+    <ResponsiveDialogTrigger asChild>
+      <Rows3 className="text-muted hover:bg-muted hover:text-foreground h-6 w-6 cursor-pointer rounded-md p-1" />
+    </ResponsiveDialogTrigger>
   );
 }
 

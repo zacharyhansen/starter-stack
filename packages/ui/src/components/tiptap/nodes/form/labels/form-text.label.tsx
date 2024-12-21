@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { FormProvider } from 'react-hook-form';
 import { useState } from 'react';
 
-import type { BaseTextNodeAttributes } from '../types';
+import type { TextNodeAttributes } from '../types';
 
 import {
   Footer,
@@ -53,7 +53,7 @@ export const FormTextLabel = (props: NodeViewProps) => {
     description,
     placeholder,
     nameLocked,
-  } = node.attrs as BaseTextNodeAttributes;
+  } = node.attrs as TextNodeAttributes;
 
   const { isEditable } = editor;
 
